@@ -22,6 +22,7 @@ class Profile(models.Model):
     name = models.CharField('Nombres', max_length=200)
     last_name = models.CharField('Apellidos', max_length=200, blank=True, null=True)
     email = models.EmailField('Correo')
+    phone_number = models.CharField('Teléfono', max_length=10, blank=True, null=True)
     birth_date = models.DateField('Fecha de nacimiento', blank=True, null=True)
     id_number = models.CharField(max_length=14)
 
