@@ -11,145 +11,130 @@
       <div class="row">
         <div class="col-md-12 order-md-1">
           <h4 class="mb-3">Ingresa tus datos:</h4>
-          <form class="needs-validation" novalidate="">
-            <div class="row">
-              <div class="col-md-6 mb-3">
-                <label for="signup-primerNombre">Primer nombre <span style="color:orangered; font-weight:700">*</span></label>
-                <input id="primer-nombre" type="text" class="form-control" id="signup-primerNombre" placeholder="" value="" required="" maxlength="45">
-                <div class="invalid-feedback">
-                  Se requiere un primer nombre.
+          <form class="needs-validation" novalidate="" method="post">
+              {% csrf_token %}
+                <div class="row">
+                  <div class="col-md-6 mb-3">
+                    <label for="signup-primerNombre">Primer nombre <span style="color:orangered; font-weight:700">*</span></label>
+                    {{ profile_form.name }}
+                    <div class="invalid-feedback">
+                      Se requiere un primer nombre.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="signup-primerApellido">Primer apellido <span style="color:orangered; font-weight:700">*</span></label>
+                  {{ profile_form.last_name }}
+                    <div class="invalid-feedback">
+                      Se requiere un primer apellido.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="signup-gender">Elige tu Género <span style="color:orangered; font-weight:700">*</span></label>
+                   {{ profile_form.gender }}
+                    <div class="invalid-feedback">
+                      Por favor elige un género.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-3">
+                    <label for="signup-rol">Elige el Tipo de Usuario <span style="color:orangered; font-weight:700">*</span></label>
+                    {{profile_form.role}}
+                    <div class="invalid-feedback">
+                      Por favor elige un rol.
+                    </div>
+                  </div>
                 </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="signup-primerApellido">Primer apellido <span style="color:orangered; font-weight:700">*</span></label>
-                <input id="primer-apellido" type="text" class="form-control" id="signup-primerApellido" placeholder="" value="" required="" maxlength="45">
-                <div class="invalid-feedback">
-                  Se requiere un primer apellido.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="signup-gender">Elige tu Género <span style="color:orangered; font-weight:700">*</span></label>
-                <select class="custom-select form-control d-block w-100" id="signup-gender" required="">
-                  <option value="0">Género</option>
-                  <option value="1">Femenino</option>
-                  <option value="2">Masculino</option>
-                  <option value="3">No Definido</option>
-                  <option value="4">Lesbiana</option>
-                  <option value="5">Gay</option>
-                  <option value="6">Transexual</option>
-                  <option value="7">Travesti</option>
-                  <option value="8">Bisexual</option>
-                  <option value="9">Pansexual</option>
-                  <option value="10">Otro</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor elige un género.
-                </div>
-              </div>
-              <div class="col-md-6 mb-3">
-                <label for="signup-rol">Elige el Tipo de Usuario <span style="color:orangered; font-weight:700">*</span></label>
-                <select class="custom-select form-control d-block w-100" id="signup-rol" required="">
-                  <option value="0">Tipo de Usuario</option>
-                  <option value="1">Foráneo</option>
-                  <option value="2">Arrendatario</option>
-                </select>
-                <div class="invalid-feedback">
-                  Por favor elige un rol.
-                </div>
-              </div>
-            </div>
 
-            <div class="mb-3">
-              <label for="signup-email">Correo electrónico <span style="color:orangered; font-weight:700">*</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-at"></i></span>
+                <div class="mb-3">
+                  <label for="signup-email">Correo electrónico <span style="color:orangered; font-weight:700">*</span></label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-at"></i></span>
+                    </div>
+                    {{ user_form.email }}
+                  </div>
                 </div>
-                <input type="email" class="form-control" id="signup-email" onkeyup="validarEmail(this.value)" placeholder="ejemplo@hotmail.com" required="" maxlength="45">
-              </div>
-            </div>
 
-            <div class="mb-3">
-              <label for="signup-phone">Teléfono <span style="color:orangered; font-weight:700">*</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                <div class="mb-3">
+                  <label for="signup-phone">Teléfono <span style="color:orangered; font-weight:700">*</span></label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                    </div>
+                   {{profile_form.phone_number}}
+                    <div class="invalid-feedback">
+                      Ingresa un número de teléfono válido.
+                    </div>
+                  </div>
                 </div>
-                <input type="phone" class="form-control" id="signup-phone" placeholder="99887766" required="" maxlength="45">
-                <div class="invalid-feedback">
-                  Ingresa un número de teléfono válido.
-                </div>
-              </div>
-            </div>
 
-            <div class="mb-3">
-              <label for="signup-birthday">Fecha de cumpleaños <span style="color:orangered; font-weight:700">*</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                <div class="mb-3">
+                  <label for="signup-birthday">Fecha de cumpleaños <span style="color:orangered; font-weight:700">*</span></label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-birthday-cake"></i></span>
+                    </div>
+                   {{ profile_form.birth_date }}
+                    <div class="invalid-feedback">
+                      Ingresa una fecha de cumpleaños válida.
+                    </div>
+                  </div>
                 </div>
-                <input type="date" class="form-control" id="signup-birthday" required="">
-                <div class="invalid-feedback">
-                  Ingresa una fecha de cumpleaños válida.
-                </div>
-              </div>
-            </div>
 
-            <div class="mb-3">
-              <label for="signup-id-number">Número de identidad <span style="color:orangered; font-weight:700">*</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                <div class="mb-3">
+                  <label for="signup-id-number">Número de identidad <span style="color:orangered; font-weight:700">*</span></label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-id-card"></i></span>
+                    </div>
+                  {{profile_form.id_number}}
+                    <div class="invalid-feedback">
+                      Ingresa un número de identidad válido.
+                    </div>
+                  </div>
                 </div>
-                <input type="number" class="form-control" id="signup-id-number" required="">
-                <div class="invalid-feedback">
-                  Ingresa un número de identidad válido.
-                </div>
-              </div>
-            </div>
 
-            <div class="mb-3">
-              <label for="signup-username">Nombre de usuario <span style="color:orangered; font-weight:700">*</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-user"></i></span>
+                <div class="mb-3">
+                  <label for="signup-username">Nombre de usuario <span style="color:orangered; font-weight:700">*</span></label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user"></i></span>
+                    </div>
+                   {{user_form.username}}
+                    <div class="invalid-feedback">
+                      Ingresa un nombre de usuario válido.
+                    </div>
+                  </div>
                 </div>
-                <input type="text" class="form-control" id="signup-username" required="">
-                <div class="invalid-feedback">
-                  Ingresa un nombre de usuario válido.
-                </div>
-              </div>
-            </div>
 
-            <div class="mb-3">
-              <label for="signup-password1">Contraseña  <span style="color:orangered; font-weight:700">*</span> <span class="text-muted">(Debe tener al menos 4 caracteres)</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-user-lock"></i></span>
+                <div class="mb-3">
+                  <label for="signup-password1">Contraseña  <span style="color:orangered; font-weight:700">*</span> <span class="text-muted">(Debe tener al menos 4 caracteres)</span></label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user-lock"></i></span>
+                    </div>
+                   {{user_form.password}}
+                    <div class="invalid-feedback">
+                      Por favor ingresa una contraseña válida.
+                    </div>
+                  </div>
                 </div>
-                <input type="password" class="form-control" id="signup-password1" required="" maxlength="45">
-                <div class="invalid-feedback">
-                  Por favor ingresa una contraseña válida.
-                </div>
-              </div>
-            </div>
 
-            <div class="mb-3">
-              <label for="signup-password2">Repite tu contraseña <span style="color:orangered; font-weight:700">*</span></label>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text"><i class="fas fa-user-lock"></i></span>
+                <div class="mb-3">
+                  <label for="signup-password2">Repite tu contraseña <span style="color:orangered; font-weight:700">*</span></label>
+                  <div class="input-group">
+                    <div class="input-group-prepend">
+                      <span class="input-group-text"><i class="fas fa-user-lock"></i></span>
+                    </div>
+                    <input type="password" class="form-control" id="signup-password2" required="" maxlength="45">
+                    <div class="invalid-feedback">
+                      La contraseña no coincide, intenta de nuevo.
+                    </div>
+                  </div>
                 </div>
-                <input type="password" class="form-control" id="signup-password2" required="" maxlength="45">
-                <div class="invalid-feedback">
-                  La contraseña no coincide, intenta de nuevo.
-                </div>
-              </div>
-            </div>
 
-            <hr class="my-4">
-            <button id="btn-registrarse" class="btn btn-login btn-lg btn-block" type="button">Registrarse</button>
-          </form>
+                <hr class="my-4">
+                <button id="btn-registrarse" class="btn btn-login btn-lg btn-block" type="submit">Registrarse</button>
+              </form>
           <hr class="mt-5 mb-0">
         </div>
       </div>
