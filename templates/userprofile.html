@@ -1,4 +1,4 @@
-<!DOCTYPE HTML>
+﻿<!DOCTYPE HTML>
 <html lang="en">
     <head>
         <meta charset="utf-8">
@@ -207,117 +207,31 @@
 			</div>
                             <div class="card-footer">
                                 <div id="profileProfileInfosocial">
-                                    <div class="h6 mb-0"><i class="fas fa-users mr-2"></i>Amigos</div>
-                                    <div id="divNumAmigos" class="text-muted mb-2">250</div>
+                                    
                                     <div class="h6 mb-0"><i class="fas fa-list-ul mr-2"></i>Publicaciones</div>
                                     <div id="divNumPosts" class="text-muted mb-2">77</div>
                                 </div>
-                                <div id="profileProfileGender"><u><i class="fas fa-venus-mars mr-2"></i>Genero:</u> Masculino</div>
-                                <div id="profileProfileBirthday"><u><i class="fas fa-birthday-cake mr-2"></i>Fecha de nacimiento:</u> 05/05/95</div>
-                                <div id="profileProfileReligion"><u><i class="fas fa-church mr-2"></i>Religión:</u> Cristiano</div>
-                                    <div id="profileProfilePolitica"><u><i class="fas fa-user-tie mr-2"></i>Política:</u> Apolítico</div>
-                                    <div id="profileProfileEstadocivil"><u><i class="fas fa-user-friends mr-2"></i>Estado civil:</u> Soltero</div>
-                                    <div id="profileProfileUsername"><u><i class="fas fa-user-astronaut mr-2"></i>Apodo:</u> @Apodo</div>
-                                    echo '<div id="profileProfileDescripcion"><u><i class="fas fa-glasses mr-2"></i>Descripcion:</u> Lorem ipsum</div>
-                                    echo '<div id="profileProfilePhone"><u><i class="fas fa-phone mr-2"></i>Teléfono:</u> 99009090</div>
-                                    echo '<div id="profileProfileLugar">
+                                <div id="profileProfileGender" class="mb-3"><u><i class="fas fa-venus-mars mr-2"></i>Genero:</u> Masculino</div>                                    
+                                    <div id="profileProfileDescripcion" class="mb-3"><u><i class="fas fa-glasses mr-2"></i>Descripcion:</u> Arrendatario</div>
+                                    <div id="profileProfilePhone" class="mb-3"><u><i class="fas fa-phone mr-2"></i>Teléfono:</u> 99009090</div>
+                                    <div id="profileProfileLugar" class="mb-3">
                                     <u><i class="fas fa-map-marker-alt mr-2"></i>Lugares:</u>
                                     <ul>
 					<li>
                                         <p>Tegucigalpa</p>
-                                        <p class="text-muted">Lugar de nacimiento</p>
-                                    </li>
-				    <li>
-                                        <p>Olancho</p>
-                                        <p class="text-muted">Lugar de residencia</p>
+                                        
                                     </li>
 				     	</ul>
                                 </div></div>
                         </div>
             </aside>
-            <main id="main-profile-post" class="col-lg-6 col-md-10">
-                <div class="home-post-div">
-                            <div class="home-post-div-textarea">
-                                <textarea id="user-postText" placeholder="¡Comparte una idea! ¿Qué estás pensando?" class="form-control"></textarea>
-                                <input type="file" class="form-control mt-2" id="user-postImg">
-                                <label for="user-idtipopost" class="col-md-12 col-form-label">Tipo de publicacion:</label>
-                                    <div class="col-md-12">
-                                        <select id="user-idtipopost" class="custom-select form-control">
-                                            <option value=""></option>
-                                            <option value="1">Opinion personal</option>
-                                            <option value="2">Publicaciones Noticiosas</option>
-                                            <option value="3">Publicacion de preguntas</option>
-                                            <option value="4">Publicacion de respuestas</option>
-                                            <option value="5">Desafios</option>
-                                            <option value="6">Canciones</option>
-                                            <option value="7">Publicacion de perfil</option>
-                                            <option value="8">Publicacion de enlaces</option>
-                                            <option value="9">Videos</option>
-                                            <option value="10">Imagenes</option>
-                                            <option value="11">Emoticonos</option>
-                                            <option value="12">Enlaces</option>
-                                            <option value="13">Actividad</option>
-                                            <option value="14">Ubicacion</option>
-                                            <option value="15">Lugares de viaje</option>
-                                            <option value="16">Acontecimientos Importantes</option>
-                                            <option value="17">Videos</option>
-                                            <option value="18">Imagenes</option>
-                                            <option value="19">Emoticonos</option>
-                                            <option value="20">Enlaces</option>
-                                            <option value="21">Actividad</option>
-                                            <option value="22">Ubicacion</option>
-                                            <option value="23">Lugares de viaje</option>
-                                            <option value="24">Acontecimientos Importantes</option>
-                                        <select>
-                                    </div>
-                            </div>
-                            <hr>
-                            <div class="form-inline contenedor-post-buttons">
-                                <button type="button" id="btn-post" class="form-control post-button"><i class="fas fa-edit mr-2"></i>Publicar</button>
-                            </div>
-                        </div>
-		<h1 class="titulo-titular">PUBLICACIONES</h1>
-                
-                <hr>
-                <div id="divMisPublicaciones">
-                <div class="card home-card text-left" id="2550">
-                        <div class="card-header home-card-header">
-                            <img src="img/profile-profile-pic.jpg" class="home-card-header-picture img-thumbnail rounded-circle">
-                            <div class="pl-2 home-card-header-friend">
-                                <a href="userprofile.html?idusuario=10" id="amigoNombre">Juan</a>
-                            </div>
-				<div class="home-card-header-eliminarpost">
-                                    <button type="button" id="deletePost2550" class="post-button" onclick="borrarPublicacion(10,2550)">
-                                        <i class="fas fa-trash" style="margin: 2px"></i>
-                                    </button>
-                                </div>
-			    </div>
-                        <div class="card-body home-card-body pt-0">
-                            <div class="home-card-body-aliasdate">
-                                <span class="text-muted" id="amigoUsername">@Apodo</span>
-                                <span class="text-muted mx-2">·</span>
-                                <span class="text-muted" id="amigoHoraPost">25/2/14</span>
-                            </div>
-                            <p class="card-text">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
-                        </div>
-                        <div class="card-footer home-card-footer">
-                            <div class="mr-2 mb-2">
-                                <span id="amigoNumReacciones2550">Reacciones 147</span>
-                                <span class="text-muted mx-2">·</span><a id="amigoNumComentarios2550" data-toggle="collapse" href="#collapseComentarios2550" role="button" aria-expanded="false" aria-controls="collapseComentarios2550">Comentarios 588</a>
-                            </div>
-                            <textarea placeholder="Añadir comentario" style="height: 70px !important;overflow: auto !important;resize: none !important;" class="form-control mb-2"></textarea>
-                            <div class="form-inline">
-                            <button type="button" onclick="reaccionarPublicacion(10,2550)" class="form-control post-button post-button-margin-bottom"><i class="fas fa-thumbs-up"></i> Reaccionar</button>
-                            <button type="button" onclick="comentarPublicacion(10',2550)" class="form-control post-button post-button-margin-bottom"><i class="fas fa-comment"></i> Comentar</button>
-                            </div>
-                            <div class="collapse" id="collapseComentarios2550">
-                                <hr>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </main>
-        </div>
+
+
+
+            
+
+            
+            
     
         <!-- Bootstrap core JavaScript
         ================================================== -->
