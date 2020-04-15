@@ -1,0 +1,229 @@
+﻿{% extends 'index.html' %}
+{% load static %}
+{% block title %} Perfil {% endblock title %}
+  
+
+    {% block header %}
+        <header>
+            <nav class="navbar navbar-expand-lg navbar-light" id="navnav">
+                <div class="row" id="wrapper">
+                    <h1 class="text-white"><img src="{% static 'img/lugar.svg' %}" style="height: 2.5rem">Perfil de Usuario</h1>
+                    <button id="boton-expandible" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="navbar-collapse text-left collapse" id="navbarSupportedContent">
+                        <form class="form-inline my-2 my-lg-0" id="login-form">
+                            <a class="link-user text-white" tabindex="1" href="userhome.php"><i class="fas fa-newspaper"></i><span>Inicio</span></a>
+                            <a class="link-user text-white" tabindex="1" href="usermsj.php"><i class="fas fa-envelope"></i><span>Mensajes</span></a>
+                            <a class="link-user text-white" tabindex="1" href="usernotif.php"><i class="fas fa-bell"></i><span>Notificaciones</span></a>
+                            <a class="link-user text-white" tabindex="1" href="userprofile.php?idusuario=10"><i class="fas fa-user-circle"></i><span>Yo</span></a>
+                            <a class="link-user text-white" tabindex="1" href="usersettings.php"><i class="fas fa-cog"></i><span>Configuración</span></a>
+                            <a class="link-user text-white" tabindex="1" href="../../../Documentacion/Manual de Usuario/Manual de Usuario Red Social.pdf" title="Manual de usuario" target="_blank"><i class="fas fa-book-open"></i><span>Manual de usuario</span></a>
+    						<a class="link-user text-white" tabindex="1" href="_logout.php" style="border: 1px solid;">Cerrar sesión<i class="fas fa-sign-out-alt"></i></a>
+                        </form>
+                    </div>
+                </div>
+            </nav>
+        </header>
+    {% endblock header %}
+
+{% block main %}
+        <div class="home-section row">
+            <aside class="col-lg-6 col-md-8 col-sm-12" id="fichaPerfil">
+		<div class="card profile-profile-card mb-5">
+                            <div class="card-header row pt-3 p-0" style="margin: 0;">
+                                <img src="{% static 'img/profile-profile-pic.jpg'%}" class="img-thumbnail" style="height: 14em;margin: 0 auto; border: 1px solid #ff854e;">
+                            </div>
+                            <div class="card-body text-center">
+                                <h3 class="card-title">Juan Triminio Perez Dominguez</h3>
+                                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#profileProfileModal">Editar perfil</button>
+                                    <div class="text-left modal fade" id="profileProfileModal" tabindex="-1" role="dialog" aria-labelledby="profileProfileModalLabel" aria-hidden="true">
+                                        <div class="modal-dialog" role="document">
+                                            <div class="modal-content">
+                                            <div class="modal-header">
+                                                <h5 class="modal-title" id="profileProfileModalLabel">Información de perfil</h5>
+                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                                </button>
+                                            </div>
+                                            <div class="modal-header text-danger">
+                                                <span>ADVERTENCIA: Por favor introduzca de nuevo sus datos en los campos vacíos, de lo contrario serán borrados de la base de datos<i class="fas fa-sad-tear ml-1"></i></span>
+                                            </div>
+                                            <div class="modal-body">
+                                            <div class="form-group row">
+                                                    <label for="cambiarFotoPerfil" class="col-md-3 col-form-label"><i class="fas fa-camera mr-2"></i>Foto de perfil:</label>
+                                                    <div class="col-md-9">
+                                                        <input type="file" class="form-control mt-2" id="cambiarFotoPerfil" maxlength="300" value="img/profile-profile-pic.jpg">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="txt-birthday" class="col-md-3 col-form-label"><i class="fas fa-birthday-cake mr-2"></i>Fecha Nacimiento:</label>
+                                                    <div class="col-md-9">
+                                                        <input type="date" class="form-control" id="txt-birthday" maxlength="45" value="05/05/95">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="txt-descripcion" class="col-md-3 col-form-label"><i class="fas fa-glasses mr-2"></i>Descripción:</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" id="txt-descripcion" maxlength="2000" value="Lorem ipsum">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="txt-religion" class="col-md-3 col-form-label"><i class="fas fa-church mr-2"></i>Religion:</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" id="txt-religion" maxlength="45" value="Cristiano">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="txt-politica" class="col-md-3 col-form-label"><i class="fas fa-user-tie mr-2"></i>Politica:</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" id="txt-politica" maxlength="45" value="Apolítico">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="txt-estadocivil" class="col-md-3 col-form-label"><i class="fas fa-user-friends mr-2"></i>Estado civil:</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" id="txt-estadocivil" maxlength="45" value="Soltero">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="txt-apodo" class="col-md-3 col-form-label"><i class="fas fa-user-astronaut mr-2"></i>Apodo:</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" id="txt-apodo" maxlength="45" value="Apodo">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="num-telefono" class="col-md-3 col-form-label"><i class="fas fa-phone mr-2"></i>Teléfono:</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" id="num-telefono" maxlength="45" value="99009090">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row">
+                                                    <label for="sitioWeb" class="col-md-3 col-form-label"><i class="fas fa-wifi mr-2"></i>Sitio Web:</label>
+                                                    <div class="col-md-9">
+                                                        <input type="text" class="form-control" id="sitioWeb" maxlength="45" value="www.wikipedia.org">
+                                                    </div>
+                                                </div>
+                                                <div class="form-group row" style="margin: 0">
+                                                    <label class="col-12 col-form-label" style="padding-left:0"><i class="fas fa-map-marker-alt mr-2"></i>Lugares:</label>
+                                                    <div class="form-row col-12">
+                                                        <div class="form-group col-md-6">
+                                                                <label for="sel-lugar1" class="col-md-12 col-form-label">Lugar de nacimiento:</label>
+                                                                <div class="col-md-12">
+                                                                    <select id="sel-lugar1" class="custom-select form-control" >
+                                                                        <option value=""></option>
+                                                                        <option value="1">Copan</option>
+                                                                        <option value="2">El Paraiso</option>
+                                                                        <option value="3">Gracias</option>
+                                                                        <option value="4">San Jose</option>
+                                                                        <option value="5">Carias</option>
+                                                                        <option value="6">Cortes</option>
+                                                                        <option value="7">Agalta</option>
+                                                                        <option value="8">Amatillo</option>
+                                                                        <option value="9">Arenales</option>
+                                                                        <option value="10">Las Brisas</option>
+                                                                        <option value="11">San Pedro Sula</option>
+                                                                        <option value="12">Sevilla</option>
+                                                                        <option value="13">Yojoa</option>
+                                                                        <option value="14">El Jardal</option>
+                                                                        <option value="15">San Jose</option>
+                                                                        <option value="16">Jutiapa</option>
+                                                                        <option value="17">Cali</option>
+                                                                        <option value="18">Copiapo</option>
+                                                                        <option value="19">Santiago</option>
+                                                                        <option value="20">Gauajaca</option>
+                                                                        <option value="21">Cuzco</option>
+                                                                        <option value="22">Cartagena</option>
+                                                                        <option value="23">Yucatan</option>
+                                                                        <option value="24">La Vega</option>
+                                                                        <option value="25">Maracaibo</option>
+                                                                        <option value="26">Medellin</option>
+                                                                        <option value="27">Valparaiso</option>
+                                                                        <option value="28">Bucaramanga</option>
+                                                                        <option value="29">La Paz</option>
+                                                                        <option value="30">Cordova</option>
+                                                                    </select>
+                                                                </div>
+                                                        </div>
+                                                        <div class="form-group col-md-6">
+                                                                <label for="sel-lugar2" class="col-md-12 col-form-label"></i>Lugar de residencia:</label>
+                                                                <div class="col-md-12">
+                                                                    <select id="sel-lugar2" class="custom-select form-control" >
+                                                                        <option value=""></option>
+                                                                        <option value="1">Copan</option>
+                                                                        <option value="2">El Paraiso</option>
+                                                                        <option value="3">Gracias</option>
+                                                                        <option value="4">San Jose</option>
+                                                                        <option value="5">Carias</option>
+                                                                        <option value="6">Cortes</option>
+                                                                        <option value="7">Agalta</option>
+                                                                        <option value="8">Amatillo</option>
+                                                                        <option value="9">Arenales</option>
+                                                                        <option value="10">Las Brisas</option>
+                                                                        <option value="11">San Pedro Sula</option>
+                                                                        <option value="12">Sevilla</option>
+                                                                        <option value="13">Yojoa</option>
+                                                                        <option value="14">El Jardal</option>
+                                                                        <option value="15">San Jose</option>
+                                                                        <option value="16">Jutiapa</option>
+                                                                        <option value="17">Cali</option>
+                                                                        <option value="18">Copiapo</option>
+                                                                        <option value="19">Santiago</option>
+                                                                        <option value="20">Gauajaca</option>
+                                                                        <option value="21">Cuzco</option>
+                                                                        <option value="22">Cartagena</option>
+                                                                        <option value="23">Yucatan</option>
+                                                                        <option value="24">La Vega</option>
+                                                                        <option value="25">Maracaibo</option>
+                                                                        <option value="26">Medellin</option>
+                                                                        <option value="27">Valparaiso</option>
+                                                                        <option value="28">Bucaramanga</option>
+                                                                        <option value="29">La Paz</option>
+                                                                        <option value="30">Cordova</option>
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                            <div class="modal-footer">
+                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                                                <button type="button" class="btn btn-primary" id="btn-EditarPerfil">Guardar cambios</button>
+                                            </div>
+                                            </div>
+                                        </div>
+                                    </div>
+			                    </div>
+                            <div class="card-footer">
+                                <div id="profileProfileInfosocial">
+                                    
+                                    <div class="h6 mb-0"><i class="fas fa-list-ul mr-2"></i>Publicaciones</div>
+                                    <div id="divNumPosts" class="text-muted mb-2">77</div>
+                                </div>
+                                <div id="profileProfileGender"><u><i class="fas fa-venus-mars mr-2"></i>Genero:</u> Masculino</div>
+                                <div id="profileProfileBirthday"><u><i class="fas fa-birthday-cake mr-2"></i>Fecha de nacimiento:</u> 05/05/95</div>
+                                    <div id="profileProfileUsername"><u><i class="fas fa-user-astronaut mr-2"></i>Apodo:</u> @Apodo</div>
+                                    echo '<div id="profileProfileDescripcion"><u><i class="fas fa-glasses mr-2"></i>Descripcion:</u> Lorem ipsum</div>
+                                    echo '<div id="profileProfilePhone"><u><i class="fas fa-phone mr-2"></i>Teléfono:</u> 99009090</div>
+                                    echo '<div id="profileProfileLugar">
+                                    <u><i class="fas fa-map-marker-alt mr-2"></i>Lugares:</u>
+                                    <ul>
+					                    <li>
+                                            <p>Tegucigalpa</p>
+                                            <p class="text-muted">Lugar de nacimiento</p>
+                                        </li>
+				                         <li>
+                                            <p>Olancho</p>
+                                            <p class="text-muted">Lugar de residencia</p>
+                                        </li>
+				     	            </ul>
+                                </div>
+                            </div>
+                        </div>
+                </aside>
+        </div>
+{% endblock main %}
+
+
+            
+

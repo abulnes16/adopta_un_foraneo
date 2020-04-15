@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Adopta_un_Foraneo.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'Adopta_un_Foraneo.settings.local')
 
 application = get_wsgi_application()
