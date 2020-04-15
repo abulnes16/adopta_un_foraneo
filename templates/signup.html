@@ -11,6 +11,15 @@
       <div class="row">
         <div class="col-md-12 order-md-1">
           <h4 class="mb-3">Ingresa tus datos:</h4>
+            {% if messages %}
+                {% for message in messages %}
+
+                    <div class="alert alert-danger">
+                        <a class="close" href="#" data-dismiss="alert">&times;</a>
+                        {{ message }}
+                    </div>
+                {% endfor %}
+            {% endif %}
           <form class="needs-validation" novalidate="" method="post">
               {% csrf_token %}
                 <div class="row">

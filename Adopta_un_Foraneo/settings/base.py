@@ -57,7 +57,7 @@ ROOT_URLCONF = 'Adopta_un_Foraneo.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [os.path.join(BASE_DIR, '../templates')]
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -72,21 +72,6 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'Adopta_un_Foraneo.wsgi.application'
-
-
-# Database
-# https://docs.djangoproject.com/en/3.0/ref/settings/#databases
-
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'adopta_foraneo',
-        'USER': 'abulnes',
-        'PASSWORD': 'root',
-        'HOST': 'localhost',
-        'PORT': 3306
-    }
-}
 
 
 # Password validation
@@ -127,5 +112,5 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
+    os.path.join(BASE_DIR, '../static')
 ]
