@@ -1,1 +1,1 @@
-web: guincorn Adopta_un_Foreano.wsgi
+web: gunicorn Adopta_un_Foraneo.wsgi
