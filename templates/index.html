@@ -1,3 +1,4 @@
+
 <!--?php include("_seguridad.php"); ?-->
 <!DOCTYPE html>
 <html lang="en">
@@ -382,3 +383,390 @@
     <script src="js/controlador.js"></script>
   </body>
 </html>
+=======
+﻿{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+{#    <link rel="icon" href="img/" />#}
+    <title>{% block title %} Adopta un foraneo {% endblock title %}</title>
+    <!-- Bootstrap core CSS -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" />
+    <!-- Fontawesome -->
+    <link rel="stylesheet" href="{% static 'fontawesome-web/css/all.css'%}" />
+    <!-- Custom styles for this template -->
+    <link href="{% static 'css/estilos-index.css'%}" rel="stylesheet" />
+    <link href="{% static 'css/estilos-commonthings.css'%}" rel="stylesheet" />
+  </head>
+
+  <body>
+  {% block header %}
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light" id="navnav">
+        <div class="row" id="wrapper">
+            <a class="nav-link" href="{% url 'home' %}">
+              <h1 class="text-white">
+                <img src="{% static 'img/lugar.svg'%}" style="height: 2.5rem;" alt="img"/> Adopta un
+                foráneo
+              </h1>
+            </a>
+          <button
+            id="boton-expandible"
+            class="navbar-toggler"
+            type="button"
+            data-toggle="collapse"
+            data-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
+            aria-expanded="false"
+            aria-label="Toggle navigation"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0" id="login-form">
+              <a class="link-sign-in text-white" tabindex="1" href="{% url 'login' %}"
+                >Iniciar sesión<i class="fas fa-sign-in-alt fa-lg ml-2"></i
+              ></a>
+              <a class="link-sign-in text-white" tabindex="1" href="{% url 'signup' %}"
+                >Únete ahora<i class="fas fa-check-circle fa-lg ml-2"></i
+              ></a>
+            </form>
+          </div>
+        </div>
+      </nav>
+    </header>
+  {% endblock header %}
+
+
+    <main role="main">
+        {% block main %}
+      <div id="myCarousel" class="carousel slide" data-ride="carousel">
+        <ol class="carousel-indicators">
+          <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+          <li data-target="#myCarousel" data-slide-to="1"></li>
+          <li data-target="#myCarousel" data-slide-to="2"></li>
+        </ol>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <img
+              class="first-slide ccc"
+              src="{%static 'img/people.jpg'%}"
+              style="height: 38rem;"
+            />
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <h1>Una comunidad para el foráneo</h1>
+                <p>
+                  Conéctate con personas que también están buscando un lugar
+                  donde vivir, igual que tú, habla con ellos y conoce a tus
+                  nuevos compañeros de cuarto.
+                </p>
+                <p>¿Qué estás esperando?</p>
+                <p>
+                  <a
+                    class="btn btn-lg btn-orange"
+                    href="{% url 'signup' %}"
+                    role="button"
+                    >Únete ahora</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="second-slide ccc" src="{% static 'img/rent.jpg'%}" />
+            <div class="container">
+              <div class="carousel-caption">
+                <h1>¡Alquila una residencia!</h1>
+                <p>
+                  ¿Deseas alquilar una residencia en una ciudad en la que
+                  estarás por un largo tiempo?. En adpota un foráneo puedes
+                  buscar la residencia en el lugar y zona que te quede más
+                  cómodo, además puedes buscar la residencia de acorde a tu
+                  presupuesto.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="carousel-item">
+            <img class="third-slide ccc" src="{% static 'img/rent.jpg'%}" />
+            <div class="container">
+              <div class="carousel-caption text-left">
+                <h1>Coloca tu propiedad para alquilar</h1>
+                <p>
+                  ¿Tienes una propiedad que no usas y deseas alquilarla, pero
+                  postear un anuncio de alquiler en un periodo te es muy caro?.
+                </p>
+                <p>
+                  Anúnciate con nosotros, únete a la comunidad y registra tu
+                  propiedad, nosotros te ayudaremos a encontrar a las personas
+                  indicadas para que puedan usar tu propiedad
+                </p>
+                <p>
+                  <a
+                    class="btn btn-lg btn-orange"
+                    href="{% url 'login' %}"
+                    role="button"
+                    >Comienza a anunciar</a
+                  >
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <a
+          class="carousel-control-prev"
+          href="#myCarousel"
+          role="button"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </a>
+        <a
+          class="carousel-control-next"
+          href="#myCarousel"
+          role="button"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </a>
+      </div>
+
+      <!-- Marketing messaging and featurettes
+      ================================================== -->
+      <!-- Wrap the rest of the page in another container to center all the content. -->
+
+      <div class="container marketing">
+        <hr class="featurette-divider" />
+        <div class="row">
+          <div class="col-4">
+            <div class="card" style="width: 18rem; padding: 10px;">
+              <h3 class="text-center">
+                <i class="fa fa-home fa-3x mensaje-titular"></i>
+              </h3>
+              <div class="card-body">
+                <h5 class="card-title text-center">Busca una casa</h5>
+                <p class="card-text text-justify">
+                  Con nosotros puedes encontrar un lugar donde vivir en la
+                  ciudad donde te vas a quedar por un buen tiempo, en la zona
+                  donde desees y donde más te guste.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card" style="width: 18rem; padding: 10px;">
+              <h3 class="text-center">
+                <i class="fa fa-users fa-3x mensaje-titular"></i>
+              </h3>
+              <div class="card-body">
+                <h5 class="card-title text-center">Encuenta compañeros</h5>
+                <p class="card-text text-justify">
+                  Si no puedes alquilar una propiedad por ti solo, conoce gente
+                  que esta interesada en el mismo lugar que tú, habla con ellos
+                  y conoce a tus nuevos compañeros de hogar.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="col-4">
+            <div class="card" style="width: 18rem; padding: 10px;">
+              <h3 class="text-center">
+                <i class="fa fa-users fa-3x mensaje-titular"></i
+                ><i class="fa fa-home fa-3x mensaje-titular"></i>
+              </h3>
+              <div class="card-body">
+                <h5 class="card-title text-center">Anuncia tu propiedad</h5>
+                <p class="card-text text-justify">
+                  Anuncia con nosotros la propiedad que estás alquilando por un
+                  excelente precio y con beneficios por postear tu primer
+                  alquiler, no esperes más.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Three columns of text below the carousel -->
+        <!-- **************************************** -->
+
+        <!-- START THE FEATURETTES -->
+
+        <hr class="featurette-divider" />
+
+        <div class="row featurette">
+          <div
+            class="col-md-5 d-flex justify-content-center align-items-center"
+          >
+            <img
+              class="featurette-image img-fluid mx-auto"
+              data-src="holder.js/500x500/auto"
+              alt="Generic placeholder image"
+              src="{% static 'img/office.jpg'%}"
+            />
+          </div>
+          <div class="col-md-7">
+            <h2 class="featurette-heading text-muted text-center">
+              Suscríbete<span class="text-black-50"> y sé de los primeros</span>
+            </h2>
+            <p class="lead m-4">
+              Suscríbete a nuestra página para estar al tanto de las nuevas
+              noticias y para que te prepares para conocer tu nuevo lugar donde
+              vas a vivir y quien sabe tal vez conocer a las personas con las
+              que vivirás en tu nuevo hogar.
+            </p>
+            <a id="sus-landing" class="btn btn-block btn-lg btn-login" href="{% url 'signup' %}">
+              Suscríbete
+            </a>
+          </div>
+        </div>
+
+        <hr class="featurette-divider" />
+
+        <div class="row">
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            <div class="row text-center">
+              <div class="col-12">
+                <h3 class="text-center mensaje-titular">Contáctanos</h3>
+              </div>
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <input
+                      id="nombre-landing"
+                      class="form-control m-2"
+                      type="text"
+                      placeholder="Nombre"
+                    />
+                    <div class="valid-feedback">
+                      Este campo esta correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Este campo esta vacio o incorrecto
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <input
+                      onkeyup="validarEmail(this.value)"
+                      id="correo-landing"
+                      class="form-control m-2"
+                      type="text"
+                      placeholder="Correo"
+                    />
+                    <div class="valid-feedback">
+                      Este campo esta correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Este campo esta vacio o incorrecto
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-6 d-flex justify-content-center align-items-center"
+              >
+                <textarea
+                  id="mensaje-landing"
+                  placeholder="Mensaje"
+                  class="form-control"
+                  rows="3"
+                ></textarea>
+                <div class="valid-feedback">
+                  Este campo esta correcto!
+                </div>
+                <div class="invalid-feedback">
+                  Este campo esta vacio o incorrecto
+                </div>
+              </div>
+              <div class="col-12 ml-1 mt-4">
+                <button
+                  id="btn-enviar-landing"
+                  class="btn btn-lg btn-block text-center btn-login"
+                >
+                  Enviar
+                </button>
+              </div>
+            </div>
+          </div>
+          <div class="col-6">
+            <img src="{% static 'img/calle.jpg' %}" class="img-fluid" />
+          </div>
+        </div>
+
+        <hr class="featurette-divider" />
+
+        <!-- /END THE FEATURETTES -->
+      </div>
+      <!-- /.container -->
+    {% endblock main %}
+    {% block footer %}
+      <!-- FOOTER -->
+      <footer class="text-center mastfoot mt-auto text-white">
+        <div class="row m-2">
+          <div class="col-4">
+            <div class="row">
+              <div class="col-2">
+                <p>Q/A</p>
+              </div>
+              <div class="col-10">
+                <ul class="list-group">
+                  <li class="text-left">
+                    <a class="card-link"
+                      >¿Cómo me comunico con el arrendadero?</a
+                    >
+                  </li>
+                  <li class="text-left">
+                    <a class="card-link"
+                      >¿Cómo me comunico con los otros interesados?</a
+                    >
+                  </li>
+                  <li class="text-left">
+                    <a class="card-link">¿Cómo anuncio mi local?</a>
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="col-4 d-flex justify-content-center align-items-center">
+            <p>
+              2020 &middot; Adopta un foráneo &copy;
+            </p>
+          </div>
+          <div class="col-4">
+            <div class="row no-gutters">
+              <div class="col-4">
+                <i class="fab fa-lg fa-2x fa-facebook"></i>
+              </div>
+              <div class="col-4">
+                <i class="fab fa-lg fa-2x fa-instagram"></i>
+              </div>
+              <div class="col-4">
+                <i class="fab fa-lg fa-2x fa-twitter"></i>
+              </div>
+              <div class="col-12">
+                <p class="m-3">Siguenos en nuestras redes sociales</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    {% endblock footer %}
+    </main>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="{% static 'js/jquery.min.js'%}"></script>
+    <script src="{% static 'js/popper.min.js'%}"></script>
+    <script src="{% static 'js/bootstrap.min.js'%}"></script>
+    <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
+    <script src="{% static 'js/holder.min.js'%}"></script>
+    <script src="{% static 'js/controlador.js'%}"></script>
+  </body>
+</html>
+
