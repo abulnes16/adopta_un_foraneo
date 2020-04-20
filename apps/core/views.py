@@ -11,10 +11,19 @@ from .forms import LoginForm
 from apps.users.forms import UserForm, ProfileForm
 from apps.users.models import Role
 from django.contrib.auth.models import Group
+from apps.contact.forms import ContactForm
 
 
 def home(request):
-    return render(request, 'index.html')
+    if request.method == 'POST':
+        contact_form = ContactForm(request.POST)
+        if contact_form.is_valid():
+            contact_form.save()
+            messages.success(request, 'Mensaje enviado con exito, nos pondremos en contacto pronto')
+        else:
+            messages.error(request, 'Ocurrió un error al enviar el mensaje, intenta nuevamente')
+
+    return render(request, 'index.html', {'form': ContactForm})
 
 
 class Login(FormView):
@@ -22,8 +31,6 @@ class Login(FormView):
     form_class = LoginForm
     success_url = reverse_lazy('dashboard')
     success_message = ''
-
-
 
     @method_decorator(csrf_protect)
     @method_decorator(never_cache)

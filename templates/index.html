@@ -251,64 +251,62 @@
               <div class="col-12">
                 <h3 class="text-center mensaje-titular">Contáctanos</h3>
               </div>
-              <div class="col-6">
-                <div class="row">
-                  <div class="col-12">
-                    <input
-                      id="nombre-landing"
-                      class="form-control m-2"
-                      type="text"
-                      placeholder="Nombre"
-                    />
-                    <div class="valid-feedback">
-                      Este campo esta correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                      Este campo esta vacio o incorrecto
-                    </div>
-                  </div>
-                  <div class="col-12">
-                    <input
-                      onkeyup="validarEmail(this.value)"
-                      id="correo-landing"
-                      class="form-control m-2"
-                      type="text"
-                      placeholder="Correo"
-                    />
-                    <div class="valid-feedback">
-                      Este campo esta correcto!
-                    </div>
-                    <div class="invalid-feedback">
-                      Este campo esta vacio o incorrecto
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <div
-                class="col-6 d-flex justify-content-center align-items-center"
-              >
-                <textarea
-                  id="mensaje-landing"
-                  placeholder="Mensaje"
-                  class="form-control"
-                  rows="3"
-                ></textarea>
-                <div class="valid-feedback">
-                  Este campo esta correcto!
-                </div>
-                <div class="invalid-feedback">
-                  Este campo esta vacio o incorrecto
-                </div>
-              </div>
-              <div class="col-12 ml-1 mt-4">
-                <button
-                  id="btn-enviar-landing"
-                  class="btn btn-lg btn-block text-center btn-login"
-                >
-                  Enviar
-                </button>
-              </div>
+               <form class="row" method="post">
+
+                   {% if messages %}
+                        {% for message in messages %}
+                                 <div class="alert alert-primary">
+                                    <a class="close" href="#" data-dismiss="alert">&times;</a>
+                                    {{ message }}
+                                </div>
+                        {% endfor %}
+                   {% endif %}
+                   {% csrf_token %}
+                      <div class="col-6">
+                            <div class="row">
+                              <div class="col-12">
+                                  {{ form.name }}
+                                <div class="valid-feedback">
+                                  Este campo esta correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                  Este campo esta vacio o incorrecto
+                                </div>
+                              </div>
+                              <div class="col-12">
+                                  {{form.email}}
+                                <div class="valid-feedback">
+                                  Este campo esta correcto!
+                                </div>
+                                <div class="invalid-feedback">
+                                  Este campo esta vacio o incorrecto
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                          <div
+                            class="col-6 d-flex justify-content-center align-items-center"
+                          >
+                            {{ form.message }}
+                            <div class="valid-feedback">
+                              Este campo esta correcto!
+                            </div>
+                            <div class="invalid-feedback">
+                              Este campo esta vacio o incorrecto
+                            </div>
+                          </div>
+                          <div class="col-12 ml-1 mt-4">
+                            <button
+                              id="btn-enviar-landing"
+                              class="btn btn-lg btn-block text-center btn-login"
+                              type="submit"
+                            >
+                              Enviar
+                            </button>
+                            </div>
+               </form>
             </div>
+
           </div>
           <div class="col-6">
             <img src="{% static 'img/calle.jpg' %}" class="img-fluid" />
