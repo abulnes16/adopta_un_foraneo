@@ -1,0 +1,16 @@
+/* ----------------------------------------------- */
+/* BODY ELEMENTS */
+.profile-profile-card{
+    border: 1px solid #ff854e;
+    margin-bottom: 2rem !important;
+    border-radius: 3px !important;
+    box-shadow: 0px 2px 8px -2px #ff854e;
+}
+.profile-profile-card>.card-header{
+    border-bottom: 0;
+    background-color: #ffffff;
+}
+.profile-profile-card>.card-footer{
+    border-top: 1px solid rgb(255, 133, 78);
+    text-align: left;
+}
