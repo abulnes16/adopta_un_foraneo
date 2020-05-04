@@ -25,7 +25,8 @@ class Profile(models.Model):
     phone_number = models.CharField('Teléfono', max_length=10, blank=True, null=True)
     birth_date = models.DateField('Fecha de nacimiento', blank=True, null=True)
     id_number = models.CharField(max_length=14)
-    gender = models.CharField(max_length=1, blank=True, null=True)
+    image = models.ImageField(upload_to='profile_pic/', blank=True, null=True, default=None)
+    gender = models.CharField(max_length=10, blank=True, null=True)
 
     class Meta:
         verbose_name = 'Perfil'

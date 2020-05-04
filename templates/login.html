@@ -1,9 +1,10 @@
-﻿{% extends 'index.html' %}
+﻿
+{% extends 'index.html' %}
 {% load static %}
 {% block main %}
 
         <form class="container px-5 py-5 form-signin"  method="post">
- {% csrf_token %}v
+            {% csrf_token %}
               <img class="mb-4" src="{% static 'img/lugar.svg'%}" width="72" height="72" />
               <h1 class="h3 mb-3 font-weight-normal titulo-titular">
                 ¡Bienvenido a Adopta Un Foráneo!
@@ -60,4 +61,3 @@
     </footer>
 
 {% endblock footer %}
-
