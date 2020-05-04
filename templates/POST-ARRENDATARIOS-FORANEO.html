@@ -1,4 +1,16 @@
-﻿
+
+﻿{% extends 'userhome.html' %}
+
+{% load static %}
+      {% block extracss %}
+        <link href="{% static 'css/estilos-userprofile.css'%}" rel="stylesheet" />
+        <link href="{% static 'css/estilos-mainpost.css'%}" rel="stylesheet" />
+      {% endblock extracss %}
+
+
+
+    {% block main %}
+    
 <html lang="en">
 
 <head>
@@ -270,3 +282,9 @@
 </body>
 
 </html>
+{% endblock main %}
+
+
+{% block extrajs %}
+
+{% endblock extrajs %}
