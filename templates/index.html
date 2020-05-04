@@ -14,12 +14,18 @@
     <!-- Custom styles for this template -->
     <link href="{% static 'css/estilos-index.css'%}" rel="stylesheet" />
     <link href="{% static 'css/estilos-commonthings.css'%}" rel="stylesheet" />
-  {% block extracss %}
+       <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-165411750-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-  {% endblock extracss %}
+      gtag('config', 'UA-165411750-1');
+    </script>
+
   </head>
 
-  
   <body>
   {% block header %}
     <header>
@@ -252,62 +258,64 @@
               <div class="col-12">
                 <h3 class="text-center mensaje-titular">Contáctanos</h3>
               </div>
-               <form class="row" method="post">
-
-                   {% if messages %}
-                        {% for message in messages %}
-                                 <div class="alert alert-primary">
-                                    <a class="close" href="#" data-dismiss="alert">&times;</a>
-                                    {{ message }}
-                                </div>
-                        {% endfor %}
-                   {% endif %}
-                   {% csrf_token %}
-                      <div class="col-6">
-                            <div class="row">
-                              <div class="col-12">
-                                  {{ form.name }}
-                                <div class="valid-feedback">
-                                  Este campo esta correcto!
-                                </div>
-                                <div class="invalid-feedback">
-                                  Este campo esta vacio o incorrecto
-                                </div>
-                              </div>
-                              <div class="col-12">
-                                  {{form.email}}
-                                <div class="valid-feedback">
-                                  Este campo esta correcto!
-                                </div>
-                                <div class="invalid-feedback">
-                                  Este campo esta vacio o incorrecto
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                          <div
-                            class="col-6 d-flex justify-content-center align-items-center"
-                          >
-                            {{ form.message }}
-                            <div class="valid-feedback">
-                              Este campo esta correcto!
-                            </div>
-                            <div class="invalid-feedback">
-                              Este campo esta vacio o incorrecto
-                            </div>
-                          </div>
-                          <div class="col-12 ml-1 mt-4">
-                            <button
-                              id="btn-enviar-landing"
-                              class="btn btn-lg btn-block text-center btn-login"
-                              type="submit"
-                            >
-                              Enviar
-                            </button>
-                            </div>
-               </form>
+              <div class="col-6">
+                <div class="row">
+                  <div class="col-12">
+                    <input
+                      id="nombre-landing"
+                      class="form-control m-2"
+                      type="text"
+                      placeholder="Nombre"
+                    />
+                    <div class="valid-feedback">
+                      Este campo esta correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Este campo esta vacio o incorrecto
+                    </div>
+                  </div>
+                  <div class="col-12">
+                    <input
+                      onkeyup="validarEmail(this.value)"
+                      id="correo-landing"
+                      class="form-control m-2"
+                      type="text"
+                      placeholder="Correo"
+                    />
+                    <div class="valid-feedback">
+                      Este campo esta correcto!
+                    </div>
+                    <div class="invalid-feedback">
+                      Este campo esta vacio o incorrecto
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div
+                class="col-6 d-flex justify-content-center align-items-center"
+              >
+                <textarea
+                  id="mensaje-landing"
+                  placeholder="Mensaje"
+                  class="form-control"
+                  rows="3"
+                ></textarea>
+                <div class="valid-feedback">
+                  Este campo esta correcto!
+                </div>
+                <div class="invalid-feedback">
+                  Este campo esta vacio o incorrecto
+                </div>
+              </div>
+              <div class="col-12 ml-1 mt-4">
+                <button
+                  id="btn-enviar-landing"
+                  class="btn btn-lg btn-block text-center btn-login"
+                >
+                  Enviar
+                </button>
+              </div>
             </div>
-
           </div>
           <div class="col-6">
             <img src="{% static 'img/calle.jpg' %}" class="img-fluid" />
@@ -383,8 +391,6 @@
     <!-- Just to make our placeholder images work. Don't actually copy the next line! -->
     <script src="{% static 'js/holder.min.js'%}"></script>
     <script src="{% static 'js/controlador.js'%}"></script>
-  {% block extrajs %}
-  {% endblock extrajs %}
   </body>
 </html>
-
+>>>>>>> d3791404d7bf07aa72027b650777179a2fe7d2e9
