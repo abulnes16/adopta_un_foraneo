@@ -60,7 +60,7 @@ class UpdateProfileForm(forms.ModelForm):
     class Meta:
         choices = (('F', 'Femenino'), ('M', 'Masculino'), ('O', 'Otros'))
         model = Profile
-        fields = ['name', 'last_name','gender','phone_number', 'birth_date']
+        fields = ['name', 'last_name','gender','phone_number', 'birth_date', 'image']
         widgets = {
             'name': forms.TextInput(attrs={'class': 'form-control', 'id': 'name', 'required': 'true'}),
             'last_name': forms.TextInput(attrs={
@@ -72,5 +72,6 @@ class UpdateProfileForm(forms.ModelForm):
                 attrs={'class': 'form-control', 'id': 'birth_date', 'required': 'true'}, years=range(1950, 2020)),
             'gender': forms.Select(attrs={'class': 'form-control', 'id': 'gender', 'required': 'true'},
                                    choices=choices),
-            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'id': 'phone_number', 'required': 'true'})
+            'phone_number': forms.TextInput(attrs={'class': 'form-control', 'id': 'phone_number', 'required': 'true'}),
+            'image': forms.FileInput()
         }

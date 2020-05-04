@@ -24,7 +24,8 @@ class Profile(models.Model):
     last_name = models.CharField('Apellidos', max_length=200, blank=True, null=True)
     phone_number = models.CharField('Teléfono', max_length=10, blank=True, null=True)
     birth_date = models.DateField('Fecha de nacimiento', blank=True, null=True)
-    id_number = models.CharField(max_length=14, )
+    id_number = models.CharField(max_length=14)
+    image = models.ImageField(upload_to='profile_pic/', blank=True, null=True, default=None)
     gender = models.CharField(max_length=10, blank=True, null=True)
 
     class Meta:

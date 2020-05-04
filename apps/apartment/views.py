@@ -13,18 +13,15 @@ def profile(request):
     current_user = request.user
     current_profile = get_object_or_404(Profile, user=current_user)
     profile_form = UpdateProfileForm(instance=current_profile)
-    context = {'profile_form': profile_form, 'profile': current_profile}
-    return render(request, 'userprofile.html', context)
-
-
-def update_profile(request):
-    current_profile = get_object_or_404(Profile,user=request.user)
     if request.method == 'POST':
-        profile_form = UpdateProfileForm(request.POST, instance=current_profile)
+        profile_form = UpdateProfileForm(request.POST, request.FILES, instance=current_profile)
         if profile_form.is_valid():
             profile_form.save()
             messages.success(request, 'El perfil se actualizó con éxito')
+            return redirect(reverse_lazy('profile'))
         else:
             messages.info(request, 'Los datos no se actualizaron')
+    context = {'profile_form': profile_form, 'profile': current_profile}
 
-    return redirect(reverse_lazy('profile'))
+    return render(request, 'userprofile.html', context)
+
