@@ -1,0 +1,121 @@
+{% extends 'index.html' %}
+{% load static %}
+{% block title %} Home {% endblock title %}
+
+    {% block header %}
+       {% include 'navbar.html' %}
+    {% endblock header %}
+
+    {% block main %}
+        <div class="home-section row">
+            <div id="tarjetaPerfil" class="col-lg-4 col-md-8 col-sm-12">
+                <div class="card home-profile-card">
+                    <div class="card-header">
+                        <img src="{% static 'img/profile-profile-pic.jpg'%}" class="home-card-profile-picture img-thumbnail">
+                    </div>
+                    <div class="card-body">
+                        <div class="h5">@Apodo</div>
+                        <div class="h7 text-muted">Nombre completo : Juan Triminio Perez Dominguez</div>
+                    </div>
+                    <div class="card-footer">
+                        <div class="h6 mb-0"><i class="fas fa-users mr-2"></i>Amigos</div>
+                        <div id="divNumAmigos" class="text-muted mb-2">250</div>
+                        <div class="h6 mb-0"><i class="fas fa-list-ul mr-2"></i>Publicaciones</div>
+                        <div id="divNumPosts" class="text-muted mb-2">100</div>
+                        <div class="h6 mb-0"><i class="fas fa-map-marker-alt mr-2"></i>Lugar</div>
+                        <div class="text-muted mb-2">Tegucigalpa</div>
+                        <div class="h6 mb-0"><i class="fas fa-calendar-alt mr-2"></i>Fecha registro</div>
+                        <div class="text-muted">20-04-14</div>
+                    </div>
+                </div>
+            </div>
+            <main id="mainhome-post" class="col-lg-8 col-md-10 col-sm-12">
+                <div class="home-post-div">
+                    <div class="home-post-div-textarea">
+                        <textarea id="user-postText" placeholder="¡Comparte una idea! ¿Qué estás pensando?" class="form-control"></textarea>
+                        <input type="file" class="form-control mt-2" id="user-postImg">
+                        <label for="user-idtipopost" class="col-md-12 col-form-label text-left">Tipo de publicacion:</label>
+                        <div class="col-md-12">
+
+
+                        </div>
+                    </div>
+                    <hr>
+                    <div class="form-inline contenedor-post-buttons">
+                        <button type="button" id="btn-post" class="form-control post-button"><i class="fas fa-edit mr-2"></i>Publicar</button>
+                    </div>
+                </div>
+                <hr>
+
+                <div id="divMisPublicaciones">
+			<div class="card home-card text-left" id="10">
+                    <div class="card-header home-card-header">
+                        <img src="{% static 'img/profile-profile-pic.jpg'%}" class="home-card-header-picture img-thumbnail rounded-circle">
+                        <div class="pl-2 home-card-header-friend">
+                            <a href="userprofile.php?idusuario=10" id="amigoNombre">Juan</a>
+                        </div>
+                        <div class="home-card-header-eliminarpost">
+                            <button type="button" id="deletePost77" class="post-button" onclick="borrarPublicacion(10,77)">
+                                <i class="fas fa-trash" style="margin: 2px"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="card-body home-card-body pt-0">
+                        <div class="home-card-body-aliasdate">
+                            <span class="text-muted" id="amigoUsername">@Apodo</span>
+                            <span class="text-muted mx-2">·</span>
+                            <span class="text-muted" id="amigoHoraPost">01/02-18</span>
+                        </div>
+                        <p class="card-text">Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    </div>
+                    <div class="card-footer home-card-footer">
+                        <div class="mr-2 mb-2">
+                            <span id="amigoNumReacciones7">Reacciones 53</span>
+                            <span class="text-muted mx-2">·</span><a id="amigoNumComentarios77" data-toggle="collapse" href="#collapseComentarios77" role="button" aria-expanded="false" aria-controls="collapseComentarios77">Comentarios 8</a>
+                        </div>
+                        <textarea id="textareaComentario77" placeholder="Añadir comentario" style="height: 70px !important;overflow: auto !important;resize: none !important;" class="form-control mb-2"></textarea>
+                        <div class="form-inline">
+                            <button type="button" onclick="reaccionarPublicacion(10,77)" class="form-control post-button post-button-margin-bottom"><i class="fas fa-thumbs-up"></i> Reaccionar</button>
+                            <button type="button" onclick="comentarPublicacion(10,77)" class="form-control post-button post-button-margin-bottom"><i class="fas fa-comment"></i> Comentar</button>
+                        </div>
+                        <div class="collapse" id="collapseComentarios77">
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+		</div>
+                <div class="card home-card text-left" id="100">
+                    <div class="card-header home-card-header">
+                        <img src="{% static 'img/profile-profile-pic.jpg'%}" class="home-card-header-picture img-thumbnail rounded-circle">
+                        <div class="pl-2 home-card-header-friend">
+                            <a href="userprofile.php?idusuario=555" id="amigoNombre">Jose de La Paz Herrera</a>
+                        </div>
+                    </div>
+                    <div class="card-body home-card-body pt-0">
+                        <div class="home-card-body-aliasdate">
+                            <span class="text-muted" id="amigoUsername">@Chelato</span>
+                            <span class="text-muted mx-2">·</span>
+                            <span class="text-muted" id="amigoHoraPost">04-04-20</span>
+                        </div>
+                        <p class="card-text"> Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum Lorem ipsum</p>
+                    </div>
+                    <div class="card-footer home-card-footer">
+                        <div class="mr-2 mb-2">
+                            <span id="amigoNumReacciones555">Reacciones 514</span>
+                            <span class="text-muted mx-2">·</span><a id="amigoNumComentarios" data-toggle="collapse" href="#collapseComentarios100" role="button" aria-expanded="false" aria-controls="collapseComentarios100">Comentarios 10</a>
+                        </div>
+                        <textarea id="textareaComentario100" placeholder="Añadir comentario" style="height: 70px !important;overflow: auto !important;resize: none !important;" class="form-control mb-2"></textarea>
+                        <div class="form-inline">
+                            <button type="button" onclick="reaccionarPublicacion(${respuesta[i].UACTIVO},100)" class="form-control post-button post-button-margin-bottom"><i class="fas fa-thumbs-up"></i> Reaccionar</button>
+                            <button type="button" onclick="comentarPublicacion(${respuesta[i].UACTIVO},100)" class="form-control post-button post-button-margin-bottom"><i class="fas fa-comment"></i> Comentar</button>
+                        </div>
+                        <div class="collapse" id="collapseComentarios100">
+                            <hr>
+                        </div>
+                    </div>
+                </div>
+                
+            </main>
+        </div>
+    {% endblock main %}
+       

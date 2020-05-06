@@ -1,0 +1,123 @@
+/* ----------------------------------------------- */
+/* NAVBAR */
+.navbar{
+  background-color: #ff854e !important;
+  padding: 0 12px 0 20px !important;
+  position: fixed !important;
+  top: 0 !important;
+  right: 0 !important;
+  left: 0 !important;
+  z-index: 1030 !important;
+}
+#wrapper{
+  width: 1116px;
+  margin: 0 auto;
+  justify-content: space-between;
+  -webkit-box-pack: justify;
+}
+#wrapper>h1{
+  color:#212529;
+}
+#boton-expandible{
+  border: solid 0.1rem rgba(0, 0, 0,0.5);
+  background-color: #ff854e;
+  height: 44px;
+  margin: 7px 0;
+}
+#login-form{
+  display: inline-flex;
+  align-items: unset;
+}
+#navbarSupportedContent{
+  flex-grow: 0;
+}
+.link-sign-in {
+  line-height: 3.1;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #212529;
+  text-decoration: none;
+  margin: 0 20px 0 10px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.link-sign-in:hover{
+  color: #ffffff;
+  text-decoration: none;
+}
+
+/* ----------------------------------------------- */
+/* BODY ELEMENTS */
+body{
+  margin-top: 58px;
+}
+.m-zero-auto{
+  margin: 0 auto;
+}
+.titulo-titular{
+  text-align: center;
+  color: #ff854e;
+}
+.link-user{
+  flex-direction: column;
+  display: flex;
+  -ms-flex-align: center;
+  align-items: center;
+  color: #212529;
+  text-decoration: none;
+  padding: 4.5px 8px;
+  font-weight: 600;
+  font-size: 16px;
+}
+.link-user:hover{
+  /*background-color: white;*/
+  color: #ffffff;
+  text-decoration: none;
+}
+/*.form-control:focus{
+    border-color: #ff854e !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 133, 78, .25) !important;
+}*/
+
+/* ----------------------------------------------- */
+/* FOOTER */
+footer{
+  background-color: #ff854e;
+  padding: 19px;
+  color: #212529;
+  font-weight: 700;
+}
+
+/* ----------------------------------------------- */
+/* BUTTONS */
+.btn-orange{
+  color: #ad4a1c;
+  background-color: #fff;
+  border: 2px #fff solid;
+  font-weight: 500;
+}
+.btn-orange:hover{
+  background-color: /*#ff854e*/ #ad4a1c;
+  color: #fff;
+  border: 2px #ad4a1c solid;
+}
+.btn-login{
+  color: #fff;
+  background-color: #ff854e;
+  border: 2px #ff854e solid;
+  font-weight: 500;
+}
+.btn-login:hover{
+  background-color: /*#ff854e*/ #ad4a1c;
+  color: #fff;
+  border: 2px #ad4a1c solid;
+}
+
+/* ----------------------------------------------- */
+/* RESPONSIVE DESIGN */
+@media screen and (max-width:375px){
+  .mensaje-titular>h2{
+    font-size: 2rem;
+  }
+}

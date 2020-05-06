@@ -1,0 +1,63 @@
+﻿
+{% extends 'index.html' %}
+{% load static %}
+{% block main %}
+
+        <form class="container px-5 py-5 form-signin"  method="post">
+            {% csrf_token %}
+              <img class="mb-4" src="{% static 'img/lugar.svg'%}" width="72" height="72" />
+              <h1 class="h3 mb-3 font-weight-normal titulo-titular">
+                ¡Bienvenido a Adopta Un Foráneo!
+              </h1>
+                {% if messages  %}
+                    {% for message in messages %}
+                    <div class="alert alert-danger">
+                        <a class="close" href="#" data-dismiss="alert">&times;</a>
+                        {{ message }}
+                    </div>
+                    {% endfor %}
+                {% endif %}
+              <label for="iniciarsesion-email" class="sr-only"
+                >Correo electrónico</label
+              >
+              <div class="mb-4 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-at"></i></span>
+                </div>
+
+              {{ form.username }}
+                <div class="invalid-feedback">
+                  Nombre de usuario no válido.
+                </div>
+              </div>
+              <label for="iniciarsesion-password" class="sr-only">Contraseña</label>
+              <div class="mb-4 input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text"><i class="fas fa-user-lock"></i></span>
+                </div>
+               {{ form.password }}
+                <div class="invalid-feedback">
+                  Contraseña no válida.
+                </div>
+              </div>
+              <div class="checkbox mb-3"></div>
+              <button
+                id="btn-iniciar-sesion"
+                class="btn btn-lg btn-login btn-block"
+                type="submit"
+              >
+                Iniciar sesión
+              </button>
+              <hr class="mt-5 mb-4" />
+    </form>
+
+{% endblock main %}
+
+{% block footer %}
+    <footer class="text-center mastfoot mt-auto text-white">
+      <div class="inner">
+        <p>2020 &middot; Splash &copy; &VerticalLine; Ángel Bulnes &middot; David Flores &middot; Mario Rodríguez &middot; Rony Barahona &middot; Walter Rivera</p>
+      </div>
+    </footer>
+
+{% endblock footer %}
