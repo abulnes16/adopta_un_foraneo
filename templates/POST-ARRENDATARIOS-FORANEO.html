@@ -1,4 +1,4 @@
-﻿{% extends 'userhome.html' %}
+{% extends 'userhome.html' %}
 
 {% load static %}
       {% block extracss %}
@@ -31,103 +31,131 @@
               <i class="fas fa-edit mr-2"></i>Publicar
             </button>
 
-            <span style="padding: 10px;">Publicar como : </span>
-            <select name="Usuario"   class="form-control post-button" class="fas fa-edit mr-2">
-              <option value ="foraneo">Foraneo</option>
-              <option value ="Arrendatario">Arrendatario</option>
-              </select> 
-              
+      <hr />
+    </main>
+  </div>
+  <!--Seccion de Post-->
+  <div class="row" style="margin-left: 50px;">
+    
+    <!--Primer Post-->
+      <div class="card" style="width: 18rem;margin: 0px 10px 10px 10px;">
+        <!--Seccion de perfil-->
+        <div class="pl-2 home-card-header-friend">
+          <img src="img/profile-profile-pic.jpg" class="home-card-header-picture img-thumbnail rounded-circle" />
+          <a href="userprofile.html?idusuario=10" id="amigoNombre" style="padding: 10px;">Roberto Carlos Martinez</a>
+          <span class="text-muted" id="amigoHoraPost">Fecha de Publicacion: 23/02/19</span> 
+          <span class="text-muted" id="amigoHoraPost">Direccion: Tegucigalpa</span>
+        </div>
+        <!--fin-->
+        <img src="img/casa1.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">alquilo casa en colonia loarque ,2 dormitorios,cocina ,2 baños. tel:99999999</p>
+          <textarea placeholder="Añadir comentario" style="
+                height: 70px !important;
+                overflow: auto !important;
+                resize: none !important; " class="form-control mb-2"></textarea>
+          <div class="form-inline">
+            <button type="button" onclick="reaccionarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-thumbs-up"></i> Me interesa
+            </button>
+            <button type="button" onclick="comentarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-comment"></i> Comentar
+            </button>
           </div>
         </div>
-        <h1 class="titulo-titular">PUBLICACIONES EN GENERAL</h1>
+      </div>
 
-        <hr />
-        <!--Primer Post-->
-        <div id="divMisPublicaciones">
-          <div class="card home-card text-left" id="2550">
-            <div class="card-header home-card-header">
-              <img
-                src="{% static 'img/profile-profile-pic.jpg' %}"
-                class="home-card-header-picture img-thumbnail rounded-circle"
-              />
-              <div class="pl-2 home-card-header-friend">
-                <a href="userprofile.html?idusuario=10" id="amigoNombre"
-                  >Juan</a
-                >
-              </div>
-              <div class="home-card-header-eliminarpost">
-                <button
-                  type="button"
-                  id="deletePost2550"
-                  class="post-button"
-                  onclick="borrarPublicacion(10,2550)"
-                >
-                  <i class="fas fa-trash" style="margin: 2px;"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body home-card-body pt-0">
-              <div class="home-card-body-aliasdate mb-3">
-                <span class="text-muted" id="amigoHoraPost"
-                  >Fecha de Publicacion 25/2/14</span>
-                <p><H4>Alquilo casa en residencial el sauce ,3 dormitorios,2 baños,patio etc,precio:1000 dolares</H4><br><a href="publicacion.com">Ir a Publicacion</a></p>
-              </div>
-              <div style="text-align: center;">
-                <div class="mb-3">
-                  <img src="{% static 'img/casa1.jpg'%}" width="500px" />
-                </div>
-
-                <div class="mb-3">
-                  <img src="{% static 'img/casa2.jpg'%}" width="500px" />
-                </div>
-              </div>
-            </div>
-
-            <div class="card-footer home-card-footer">
-              <div class="mr-2 mb-2">
-                <span id="amigoNumReacciones2550">Comentar Publicacion</span>
-                <span class="text-muted mx-2">·</span
-                ><a
-                  id="amigoNumComentarios2550"
-                  data-toggle="collapse"
-                  href="#collapseComentarios2550"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseComentarios2550"
-                  >Comentarios 588</a
-                >
-              </div>
-              <textarea
-                placeholder="Añadir comentario"
-                style="
-                  height: 70px !important;
-                  overflow: auto !important;
-                  resize: none !important;
-                "
-                class="form-control mb-2"
-              ></textarea>
-              <div class="form-inline">
-                <button
-                  type="button"
-                  onclick="reaccionarPublicacion(10,2550)"
-                  class="form-control post-button post-button-margin-bottom"
-                >
-                  <i class="fas fa-thumbs-up"></i> Me interesa
-                </button>
-                <button
-                  type="button"
-                  onclick="comentarPublicacion(10,2550)"
-                  class="form-control post-button post-button-margin-bottom"
-                >
-                  <i class="fas fa-comment"></i> Comentar
-                </button>
-              </div>
-              <div class="collapse" id="collapseComentarios2550">
-                <hr />
-              </div>
-            </div>
+      <!--Segundo Post-->
+      <div class="card" style="width: 18rem;margin: 0px 10px 10px 10px;">
+        <!--Seccion de perfil-->
+        <div class="pl-2 home-card-header-friend">
+          <img src="img/profile-profile-pic.jpg" class="home-card-header-picture img-thumbnail rounded-circle" />
+          <a href="userprofile.html?idusuario=10" id="amigoNombre" style="padding: 10px;">Juan Jose Mejia</a>
+          <span class="text-muted" id="amigoHoraPost">Fecha de Publicacion: 25/03/20</span>
+          <span class="text-muted" id="amigoHoraPost">Direccion: Tegucigalpa</span>
+        </div>
+        <!--fin-->
+        <img src="img/casa2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Alquilo casa en colonia el sauce , cuenta con 3 dormitorios ,3 baños,amueblada. Para mas informacion llamar al tel:94563738</p>
+          <textarea placeholder="Añadir comentario" style="
+                     height: 70px !important;
+                     overflow: auto !important;
+                     resize: none !important;" class="form-control mb-2"></textarea>
+          <div class="form-inline">
+            <button type="button" onclick="reaccionarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-thumbs-up"></i> Me interesa
+            </button>
+            <button type="button" onclick="comentarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-comment"></i> Comentar
+            </button>
           </div>
         </div>
+      </div>
+
+      <!--Tercer Post-->
+      <div class="card" style="width: 18rem;margin: 0px 10px 10px 10px;">
+        <!--Seccion de perfil-->
+        <div class="pl-2 home-card-header-friend">
+          <img src="img/profile-profile-pic.jpg" class="home-card-header-picture img-thumbnail rounded-circle" />
+          <a href="userprofile.html?idusuario=10" id="amigoNombre" style="padding: 10px;">Laura Rodriguez</a>
+          <span class="text-muted" id="amigoHoraPost">Fecha de Publicacion: 02/02/20</span>
+          <span class="text-muted" id="amigoHoraPost">Direccion: San Pedro Sula</span>
+        </div>
+        <!--fin-->
+        <img src="img/casa3.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <p class="card-text">Alquilo casa en colonia los proceres,incluye servicios publicos,amueblada,cuenta con 2 dormitorios ,2 baños,llamadas al :88292019 </p>
+          <textarea placeholder="Añadir comentario" style="
+                height: 70px !important;
+                overflow: auto !important;
+                resize: none !important;" class="form-control mb-2"> </textarea>
+          <div class="form-inline">
+            <button type="button" onclick="reaccionarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-thumbs-up"></i> Me interesa
+            </button>
+            <button type="button" onclick="comentarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-comment"></i> Comentar
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!--Cuarto Post-->
+      <div class="card" style="width: 18rem;margin: 0px 10px 10px 10px;">
+        <!--Seccion de perfil-->
+        <div class="pl-2 home-card-header-friend" style="margin: 10px;">
+          <img src="img/profile-profile-pic.jpg" class="home-card-header-picture img-thumbnail rounded-circle" />
+          <a href="userprofile.html?idusuario=10" id="amigoNombre" style="padding: 10px;">Eduardo Amador</a>
+          <span class="text-muted" id="amigoHoraPost">Fecha de Publicacion: 25/2/14</span>
+          <span class="text-muted" id="amigoHoraPost">Direccion: La Ceiba</span>
+        </div>
+        <!--fin-->
+        <div class="card-body">
+          <p>Busco compañeros de casa en colonia segura,que incluya servicios publicos ,mi presupuesto es 3000 lempiras. comunicarse al 98763526</p>
+          <textarea placeholder="Añadir comentario" style="
+                height: 70px !important;
+                overflow: auto !important;
+                resize: none !important; " class="form-control mb-2"></textarea>
+          <div class="form-inline">
+            <button type="button" onclick="reaccionarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-thumbs-up"></i> Me interesa
+            </button>
+            <button type="button" onclick="comentarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-comment"></i> Comentar
+            </button>
+          </div>
+        </div>
+      </div>
+
 
         <!--Segundo Post-->
         <div id="divMisPublicaciones">
@@ -162,131 +190,63 @@
               
             </div>
 
-            <div class="card-footer home-card-footer">
-              <div class="mr-2 mb-2">
-                <span id="amigoNumReacciones2550">Comentar Publicacion</span>
-                <span class="text-muted mx-2">·</span
-                ><a
-                  id="amigoNumComentarios2550"
-                  data-toggle="collapse"
-                  href="#collapseComentarios2550"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseComentarios2550"
-                  >Comentarios 588</a
-                >
-              </div>
-              <textarea
-                placeholder="Añadir comentario"
-                style="
-                  height: 70px !important;
-                  overflow: auto !important;
-                  resize: none !important;
-                "
-                class="form-control mb-2"
-              ></textarea>
-              <div class="form-inline">
-                <button
-                  type="button"
-                  onclick="reaccionarPublicacion(10,2550)"
-                  class="form-control post-button post-button-margin-bottom"
-                >
-                  <i class="fas fa-thumbs-up"></i> Me interesa
-                </button>
-                <button
-                  type="button"
-                  onclick="comentarPublicacion(10,2550)"
-                  class="form-control post-button post-button-margin-bottom"
-                >
-                  <i class="fas fa-comment"></i> Comentar
-                </button>
-              </div>
-              <div class="collapse" id="collapseComentarios2550">
-                <hr />
-              </div>
-            </div>
+      <div class="card" style="width: 18rem;margin: 0px 10px 10px 10px;">
+        <!--Seccion de perfil-->
+        <div class="pl-2 home-card-header-friend" style="margin: 10px;">
+          <img src="img/profile-profile-pic.jpg" class="home-card-header-picture img-thumbnail rounded-circle" />
+          <a href="userprofile.html?idusuario=10" id="amigoNombre" style="padding: 10px;"> Jose Carlos Medina</a>
+          <span class="text-muted" id="amigoHoraPost">Fecha de Publicacion: 25/2/14</span>
+          <span class="text-muted" id="amigoHoraPost">Direccion: Tegucigalpa</span>
+        </div>
+        <!--fin-->
+        <div class="card-body">
+          <p>Busco habitacion cerca de la UNAH,en circuito privado,mi presupuesto es 4,000 lempiras ,comunicarse al :98920291</p>
+          <textarea placeholder="Añadir comentario" style="
+        height: 70px !important;
+        overflow: auto !important;
+        resize: none !important; " class="form-control mb-2"></textarea>
+          <div class="form-inline">
+            <button type="button" onclick="reaccionarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-thumbs-up"></i> Me interesa
+            </button>
+            <button type="button" onclick="comentarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-comment"></i> Comentar
+            </button>
           </div>
         </div>
-        <!--Tercer Post-->
-        <div id="divMisPublicaciones">
-          <div class="card home-card text-left" id="2550">
-            <div class="card-header home-card-header">
-              <img
-                src="{% static 'img/perfil.jpg'%}"
-                class="home-card-header-picture img-thumbnail rounded-circle"
-              />
-              <div class="pl-2 home-card-header-friend">
-                <a href="userprofile.html?idusuario=10" id="amigoNombre"
-                  >ROBERTO CASTRO</a
-                >
-              </div>
-              <div class="home-card-header-eliminarpost">
-                <button
-                  type="button"
-                  id="deletePost2550"
-                  class="post-button"
-                  onclick="borrarPublicacion(10,2550)"
-                >
-                  <i class="fas fa-trash" style="margin: 2px;"></i>
-                </button>
-              </div>
-            </div>
-            <div class="card-body home-card-body pt-0">
-              <div class="home-card-body-aliasdate mb-3">
-                <span class="text-muted" id="amigoHoraPost"
-                  >Fecha de Publicacion 25/2/14</span>
-                <p><H4>Busco compartir casa en col.kennedy,mi presupuesto es:2000 lempiras,llamadas o whatsapp:88854742</H4><br></p>
-              </div>
-              
-            </div>
+      </div>
 
-            <div class="card-footer home-card-footer">
-              <div class="mr-2 mb-2">
-                <span id="amigoNumReacciones2550">Comentar Publicacion</span>
-                <span class="text-muted mx-2">·</span
-                ><a
-                  id="amigoNumComentarios2550"
-                  data-toggle="collapse"
-                  href="#collapseComentarios2550"
-                  role="button"
-                  aria-expanded="false"
-                  aria-controls="collapseComentarios2550"
-                  >Comentarios 588</a
-                >
-              </div>
-              <textarea
-                placeholder="Añadir comentario"
-                style="
-                  height: 70px !important;
-                  overflow: auto !important;
-                  resize: none !important;
-                "
-                class="form-control mb-2"
-              ></textarea>
-              <div class="form-inline">
-                <button
-                  type="button"
-                  onclick="reaccionarPublicacion(10,2550)"
-                  class="form-control post-button post-button-margin-bottom"
-                >
-                  <i class="fas fa-thumbs-up"></i> Me interesa
-                </button>
-                <button
-                  type="button"
-                  onclick="comentarPublicacion(10,2550)"
-                  class="form-control post-button post-button-margin-bottom"
-                >
-                  <i class="fas fa-comment"></i> Comentar
-                </button>
-              </div>
-              <div class="collapse" id="collapseComentarios2550">
-                <hr />
-              </div>
-            </div>
+      <!--Sexto Post-->
+      <div class="card" style="width: 18rem;margin: 0px 10px 10px 10px;">
+        <!--Seccion de perfil-->
+        <div class="pl-2 home-card-header-friend" style="margin: 10px;">
+          <img src="img/profile-profile-pic.jpg" class="home-card-header-picture img-thumbnail rounded-circle" />
+          <a href="userprofile.html?idusuario=10" id="amigoNombre" style="padding: 10px;">Misael Zelaya</a>
+          <span class="text-muted" id="amigoHoraPost">Fecha de Publicacion: 01/04/19</span>
+          <span class="text-muted" id="amigoHoraPost">Direccion: Tegucigalpa</span>
+        </div>
+        <!--fin-->
+        <div class="card-body">
+          <p>Busco compañeros de casa,cerca de UNITEC, en colonia residencial ,mi presupuesto es 6,000 lempiras, favor comunicarse al 99802788</p>
+          <textarea placeholder="Añadir comentario" style="
+        height: 70px !important;
+        overflow: auto !important;
+        resize: none !important; " class="form-control mb-2"></textarea>
+          <div class="form-inline">
+            <button type="button" onclick="reaccionarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-thumbs-up"></i> Me interesa
+            </button>
+            <button type="button" onclick="comentarPublicacion(10,2550)"
+              class="form-control post-button post-button-margin-bottom">
+              <i class="fas fa-comment"></i> Comentar
+            </button>
           </div>
         </div>
+      </div>
 
-      </main>
     </div>
 {% endblock main %}
 
