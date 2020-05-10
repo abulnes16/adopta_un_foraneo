@@ -3,8 +3,15 @@ from apps.users.models import Profile
 
 
 class ApartmentType(models.Model):
+    APARTMENT_TYPES_CHOICES = [
+        ('Casa', 'Casa'),
+        ('Apartamento', 'Apartamento'),
+        ('Piso', 'Piso'),
+        ('Planta', 'Planta'),
+        ('Habitacion', 'Habitacion'),
+    ]
     id = models.AutoField(primary_key=True)
-    name = models.CharField(verbose_name='Tipo de propiedad', max_length=100)
+    name = models.CharField(verbose_name='Tipo de propiedad', max_length=100, choices=APARTMENT_TYPES_CHOICES)
 
     class Meta:
         verbose_name = 'Tipo de Propiedad'
@@ -38,7 +45,7 @@ class Apartment(models.Model):
     type = models.ForeignKey(ApartmentType, on_delete=models.CASCADE, verbose_name='Tipo de propiedad')
     property_state = models.BooleanField('Rentado / No Rentado')
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Dueño')
-    comments = models.ForeignKey(Comments, on_delete=models.CASCADE, verbose_name='Comentarios')
+    comments = models.ForeignKey(Comments, on_delete=models.CASCADE, verbose_name='Comentarios', blank=True, null=True)
     publication_date = models.DateField('Fecha de publicación', auto_now=True)
 
     class Meta:

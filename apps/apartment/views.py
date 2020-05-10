@@ -3,10 +3,13 @@ from django.urls import reverse_lazy
 from apps.users.models import Profile
 from django.contrib import messages
 from apps.users.forms import UpdateProfileForm
+from .models import Apartment
 
 
 def dashboard(request):
-    return render(request, 'POST-ARRENDATARIOS-FORANEO.html')
+    apartments = Apartment.objects.all()
+    context = {'apartments': apartments}
+    return render(request, 'POST-ARRENDATARIOS-FORANEO.html', context)
 
 
 def profile(request):
