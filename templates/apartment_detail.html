@@ -1,0 +1,150 @@
+{% extends 'userhome.html' %}
+{% load static %}
+{% block main %}
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-2 col-md-3 col-sm-0"></div>
+            <div class="col-lg-8 col-md-6 col-sm-12">
+                <div class="card mt-5 mb-5" style="width: 100%;">
+                    <div>
+                        <img class="img-fluid" src="{% static 'img/house.jpg' %}" alt="Casa"/>
+                    </div>
+                    <div class="card-body">
+                        <h4 id="title" class="card-title">{{ apartment.title }}</h4>
+                        <p id="description" class="card-text">
+                            {{ apartment.description }}
+                        </p>
+                        <hr/>
+                        <span>
+                <label style="font-weight: bold;">Dirección</label>
+                <p id="direction" class="card-text">
+                  {{ apartment.direction }}
+                </p>
+              </span>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                    <span>
+                      <label style="font-weight: bold;">Ciudad</label>
+                      <p id="city">{{ apartment.city }}</p>
+                    </span>
+                                </li>
+                                <li id="rent_price" class="list-group-item">
+                    <span>
+                      <label style="font-weight: bold;">Precio de Renta</label>
+                      <p id="rent_price">Lps. {{ apartment.rent_price }}</p>
+                    </span>
+                                </li>
+                                <li class="list-group-item">
+                    <span>
+                      <label style="font-weight: bold;"
+                      >Tipo de Propiedad</label
+                      >
+                      <p id="type">{{ apartment.type.name }}</p>
+                    </span>
+                                </li>
+                                <li class="list-group-item">
+                    <span>
+                      <label style="font-weight: bold;"
+                      >Estado de la Propiedad</label
+                      >
+                      <p id="property_state">
+                          {% if apartment.property_state %}
+                              Rentado
+                          {% else %}
+                              Disponible
+                          {% endif %}
+                      </p>
+                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="col-lg-6">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <ul id="requirements" class="list-group list-group-flush">
+                                        <label style="font-weight: bold;">Requerimientos</label>
+                                        {{ apartment.requirements }}
+                                        </li>
+                                    </ul>
+                                </li>
+
+                                <li class="list-group-item">
+                    <span>
+                      <label style="font-weight: bold;">Dueño</label>
+                      <p id="owner">{{ apartment.owner.first_name }} {{ apartment.owner.last_name }}</p>
+                    </span>
+                    <span>
+                      <label style="font-weight: bold;">Telefono</label>
+                      <p id="owner">{{ apartment.owner.phone_number }}</p>
+                    </span>
+                                </li>
+                                <li class="list-group-item">
+                    <span>
+                      <label style="font-weight: bold;"
+                      >Fecha de Publicación</label
+                      >
+                      <p id="publication_date">{{ apartment.publication_date }}</p>
+                    </span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card-body">
+              <textarea
+                      id="comentarios"
+                      placeholder="Agrega un Comentario"
+                      class="form-control"
+              ></textarea>
+
+                        <button
+                                type="button"
+                                class="btn btn-md btn-success mt-3 float-right"
+                        >
+                            Guardar Comentario
+                        </button>
+                    </div>
+
+                    <div id="caja-comentarios" class="card-body">
+                        <div class="card mb-4" style="width: 100%;">
+                            <div class="card-body">
+                                <h6 id="idUser" class="card-subtitle mb-2 text-muted">
+                                    Rony Rodriguez
+                                </h6>
+                                <p class="card-text">
+                                    Yo no estoy haciendo responsive esa mierda chavalo paila XD.
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="card mb-4" style="width: 100%;">
+                            <div class="card-body">
+                                <h6 id="idUser" class="card-subtitle mb-2 text-muted">
+                                    David Flores
+                                </h6>
+                                <p class="card-text">
+                                    x2. Joputa tóxico.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                    {% if request.user.profile.role.description == 'Arrendatario' %}
+                        <div class="card-body">
+                            <a href="{% url 'admin:apartment_apartment_delete' apartment.id %}"
+                               class="btn btn-lg btn-danger mr-3">
+                                Eliminar
+                            </a>
+                            <a href="{% url 'admin:apartment_apartment_change' apartment.id %}"
+                               class="btn btn-lg btn-primary">
+                                Editar
+                            </a>
+                        </div>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-3 col-sm-0"></div>
+        </div>
+    </div>
+{% endblock main %}

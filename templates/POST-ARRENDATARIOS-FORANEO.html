@@ -25,36 +25,39 @@
         <div class="row" style="margin-left: 50px;">
             {% if apartments %}
                 {% for apartment in apartments %}
-                    <div class="card p-3" style="width: 18rem;margin: 0px 10px 10px 10px;">
-                        <!--Seccion de perfil-->
-                        <div class="pl-2 home-card-header-friend">
-                            {% if apartment.owner.image %}
-                                 <img src="{{ apartment.owner.image.url }}"
-                                     class="home-card-header-picture img-thumbnail rounded-circle img-fluid"
-                                     width="50"/>
-                            {% else %}
-                                <img src="{% static 'img/profile-profile-pic.jpg' %}"
-                                     class="home-card-header-picture img-thumbnail rounded-circle img-fluid"
-                                     width="40"/>
-                            {% endif %}
+                    <a class="no-link" href="{% url 'details' apartment.id %}">
+                        <div class="card p-3" style="width: 18rem;margin: 0px 10px 10px 10px;">
+                            <!--Seccion de perfil-->
+                            <div class="pl-2 home-card-header-friend">
+                                {% if apartment.owner.image %}
+                                    <img src="{{ apartment.owner.image.url }}"
+                                         class="home-card-header-picture img-thumbnail rounded-circle img-fluid"
+                                         width="50"/>
+                                {% else %}
+                                    <img src="{% static 'img/profile-profile-pic.jpg' %}"
+                                         class="home-card-header-picture img-thumbnail rounded-circle img-fluid"
+                                         width="40"/>
+                                {% endif %}
 
-                            <span href="userprofile.html?idusuario=10" id="amigoNombre"
-                                  style="padding: 10px;">{{ apartment.owner }}</span>
+                                <span href="userprofile.html?idusuario=10" id="amigoNombre"
+                                      style="padding: 10px;">{{ apartment.owner }}</span>
 
-                        </div>
-                        <!--fin-->
-                        <div class="card-body">
-                            <img src="{% static 'img/casa1.jpg' %}" class="card-img-top" alt="...">
-                            <div class="mt-2 p-2 text-justify">
-                                {{ apartment.description }}
+                            </div>
+                            <!--fin-->
+                            <div class="card-body">
+                                <img src="{% static 'img/casa1.jpg' %}" class="card-img-top" alt="...">
+                                <div class="mt-2 p-2 text-justify">
+                                    {{ apartment.description }}
+                                </div>
+                            </div>
+                            <div class="card-footer">
+                                <div class="text-muted" id="amigoHoraPost">
+                                    <b>Fecha:</b> {{ apartment.publication_date }}
+                                </div>
+                                <span class="text-muted" id="amigoHoraPost"><b>Ciudad:</b> {{ apartment.city }}</span>
                             </div>
                         </div>
-                        <div class="card-footer">
-                            <div class="text-muted" id="amigoHoraPost"><b>Fecha:</b> {{ apartment.publication_date }}
-                            </div>
-                            <span class="text-muted" id="amigoHoraPost"><b>Ciudad:</b> {{ apartment.city }}</span>
-                        </div>
-                    </div>
+                    </a>
                 {% endfor %}
             {% else %}
                 <div class="p-5 text-center m-5 ">

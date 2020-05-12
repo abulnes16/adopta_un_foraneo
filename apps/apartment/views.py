@@ -12,6 +12,11 @@ def dashboard(request):
     return render(request, 'POST-ARRENDATARIOS-FORANEO.html', context)
 
 
+def apartment_detail(request, id):
+    apartment = get_object_or_404(Apartment, id=id)
+    context = {'apartment': apartment}
+    return render(request, 'apartment_detail.html', context)
+
 def profile(request):
     current_user = request.user
     current_profile = get_object_or_404(Profile, user=current_user)
