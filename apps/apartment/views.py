@@ -3,7 +3,7 @@ from django.urls import reverse_lazy
 from apps.users.models import Profile
 from django.contrib import messages
 from apps.users.forms import UpdateProfileForm
-from .models import Apartment
+from .models import Apartment, Comments
 
 
 def dashboard(request):
@@ -14,8 +14,10 @@ def dashboard(request):
 
 def apartment_detail(request, id):
     apartment = get_object_or_404(Apartment, id=id)
-    context = {'apartment': apartment}
+    comments = Comments.objects.filter(apartment__id=id)
+    context = {'apartment': apartment, 'comments': comments}
     return render(request, 'apartment_detail.html', context)
+
 
 def profile(request):
     current_user = request.user

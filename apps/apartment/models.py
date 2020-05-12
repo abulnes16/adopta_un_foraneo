@@ -21,17 +21,6 @@ class ApartmentType(models.Model):
         return self.name
 
 
-class Comments(models.Model):
-    id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Usuario')
-    content = models.TextField('Comentario')
-
-    class Meta:
-        verbose_name = 'Comentario'
-        verbose_name_plural = 'Comentarios'
-
-    def __str__(self):
-        return self.user
 
 
 class Apartment(models.Model):
@@ -45,7 +34,6 @@ class Apartment(models.Model):
     type = models.ForeignKey(ApartmentType, on_delete=models.CASCADE, verbose_name='Tipo de propiedad')
     property_state = models.BooleanField('Rentado / No Rentado')
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Dueño')
-    comments = models.ForeignKey(Comments, on_delete=models.CASCADE, verbose_name='Comentarios', blank=True, null=True)
     publication_date = models.DateField('Fecha de publicación', auto_now=True)
 
     class Meta:
@@ -55,3 +43,17 @@ class Apartment(models.Model):
     def __str__(self):
         return self.title
 
+
+class Comments(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Usuario')
+    content = models.TextField('Comentario')
+    apartment = models.ForeignKey(Apartment,on_delete=models.CASCADE, default=None)
+    comment_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Comentario'
+        verbose_name_plural = 'Comentarios'
+
+    def __str__(self):
+        return str(self.user)

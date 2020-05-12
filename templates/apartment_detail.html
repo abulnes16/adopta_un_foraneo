@@ -76,7 +76,7 @@
                       <label style="font-weight: bold;">Dueño</label>
                       <p id="owner">{{ apartment.owner.first_name }} {{ apartment.owner.last_name }}</p>
                     </span>
-                    <span>
+                                    <span>
                       <label style="font-weight: bold;">Telefono</label>
                       <p id="owner">{{ apartment.owner.phone_number }}</p>
                     </span>
@@ -108,28 +108,23 @@
                     </div>
 
                     <div id="caja-comentarios" class="card-body">
-                        <div class="card mb-4" style="width: 100%;">
-                            <div class="card-body">
-                                <h6 id="idUser" class="card-subtitle mb-2 text-muted">
-                                    Rony Rodriguez
-                                </h6>
-                                <p class="card-text">
-                                    Yo no estoy haciendo responsive esa mierda chavalo paila XD.
-                                </p>
-                            </div>
-                        </div>
+                        {% if comments %}
 
-                        <div class="card mb-4" style="width: 100%;">
-                            <div class="card-body">
-                                <h6 id="idUser" class="card-subtitle mb-2 text-muted">
-                                    David Flores
-                                </h6>
-                                <p class="card-text">
-                                    x2. Joputa tóxico.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                            {% for comment in comments %}
+                                <div class="card mb-4" style="width: 100%;">
+                                    <div class="card-body">
+                                        <h6 id="idUser" class="card-subtitle mb-2 text-muted">
+                                            {{comment.user}}
+                                        </h6>
+                                        <p class="card-text">
+                                            {{comment.content}}
+                                        </p>
+                                    </div>
+                                </div>
+                            {% endfor %}
+                        {% else %}
+                            <h5 class="text-center m-3">No hay comentarios para esta propiedad</h5>
+                        {% endif %}
                     {% if request.user.profile.role.description == 'Arrendatario' %}
                         <div class="card-body">
                             <a href="{% url 'admin:apartment_apartment_delete' apartment.id %}"
