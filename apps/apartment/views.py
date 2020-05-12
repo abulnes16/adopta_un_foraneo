@@ -19,6 +19,14 @@ def apartment_detail(request, id):
     return render(request, 'apartment_detail.html', context)
 
 
+def add_coment(request, id):
+    if request.method == 'POST':
+        user = request.user.profile
+        content = request.POST['contenido']
+        Comments.objects.create(user=user, apartment_id=id, content=content)
+    return redirect('details', id=id)
+
+
 def profile(request):
     current_user = request.user
     current_profile = get_object_or_404(Profile, user=current_user)
@@ -34,4 +42,3 @@ def profile(request):
     context = {'profile_form': profile_form, 'profile': current_profile}
 
     return render(request, 'userprofile.html', context)
-

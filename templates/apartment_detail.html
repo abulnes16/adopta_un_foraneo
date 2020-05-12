@@ -93,31 +93,34 @@
                         </div>
                     </div>
                     <div class="card-body">
-              <textarea
-                      id="comentarios"
-                      placeholder="Agrega un Comentario"
-                      class="form-control"
-              ></textarea>
+                        <form action="{% url 'comment' apartment.id %}" method="post">
+                            {% csrf_token %}
+                            <textarea
+                                    id="comentarios"
+                                    placeholder="Agrega un Comentario"
+                                    name="contenido"
+                                    class="form-control"
+                            ></textarea>
 
-                        <button
-                                type="button"
-                                class="btn btn-md btn-success mt-3 float-right"
-                        >
-                            Guardar Comentario
-                        </button>
+                            <button
+                                    type="submit"
+                                    class="btn btn-md btn-login mt-3 float-right"
+                            >
+                                Guardar Comentario
+                            </button>
+                        </form>
                     </div>
 
                     <div id="caja-comentarios" class="card-body">
                         {% if comments %}
-
                             {% for comment in comments %}
                                 <div class="card mb-4" style="width: 100%;">
                                     <div class="card-body">
                                         <h6 id="idUser" class="card-subtitle mb-2 text-muted">
-                                            {{comment.user}}
+                                            {{ comment.user }}
                                         </h6>
                                         <p class="card-text">
-                                            {{comment.content}}
+                                            {{ comment.content }}
                                         </p>
                                     </div>
                                 </div>
@@ -125,21 +128,21 @@
                         {% else %}
                             <h5 class="text-center m-3">No hay comentarios para esta propiedad</h5>
                         {% endif %}
-                    {% if request.user.profile.role.description == 'Arrendatario' %}
-                        <div class="card-body">
-                            <a href="{% url 'admin:apartment_apartment_delete' apartment.id %}"
-                               class="btn btn-lg btn-danger mr-3">
-                                Eliminar
-                            </a>
-                            <a href="{% url 'admin:apartment_apartment_change' apartment.id %}"
-                               class="btn btn-lg btn-primary">
-                                Editar
-                            </a>
-                        </div>
-                    {% endif %}
+                        {% if request.user.profile.role.description == 'Arrendatario' %}
+                            <div class="card-body">
+                                <a href="{% url 'admin:apartment_apartment_delete' apartment.id %}"
+                                   class="btn btn-lg btn-danger mr-3">
+                                    Eliminar
+                                </a>
+                                <a href="{% url 'admin:apartment_apartment_change' apartment.id %}"
+                                   class="btn btn-lg btn-login">
+                                    Editar
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
                 </div>
+                <div class="col-lg-2 col-md-3 col-sm-0"></div>
             </div>
-            <div class="col-lg-2 col-md-3 col-sm-0"></div>
         </div>
-    </div>
 {% endblock main %}
