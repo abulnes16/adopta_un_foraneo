@@ -3,8 +3,15 @@ from apps.users.models import Profile
 
 
 class ApartmentType(models.Model):
+    APARTMENT_TYPES_CHOICES = [
+        ('Casa', 'Casa'),
+        ('Apartamento', 'Apartamento'),
+        ('Piso', 'Piso'),
+        ('Planta', 'Planta'),
+        ('Habitacion', 'Habitacion'),
+    ]
     id = models.AutoField(primary_key=True)
-    name = models.CharField(verbose_name='Tipo de propiedad', max_length=100)
+    name = models.CharField(verbose_name='Tipo de propiedad', max_length=100, choices=APARTMENT_TYPES_CHOICES)
 
     class Meta:
         verbose_name = 'Tipo de Propiedad'
@@ -14,17 +21,6 @@ class ApartmentType(models.Model):
         return self.name
 
 
-class Comments(models.Model):
-    id = models.AutoField(primary_key=True)
-    user = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Usuario')
-    content = models.TextField('Comentario')
-
-    class Meta:
-        verbose_name = 'Comentario'
-        verbose_name_plural = 'Comentarios'
-
-    def __str__(self):
-        return self.user
 
 
 class Apartment(models.Model):
@@ -38,7 +34,6 @@ class Apartment(models.Model):
     type = models.ForeignKey(ApartmentType, on_delete=models.CASCADE, verbose_name='Tipo de propiedad')
     property_state = models.BooleanField('Rentado / No Rentado')
     owner = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Dueño')
-    comments = models.ForeignKey(Comments, on_delete=models.CASCADE, verbose_name='Comentarios')
     publication_date = models.DateField('Fecha de publicación', auto_now=True)
 
     class Meta:
@@ -48,3 +43,17 @@ class Apartment(models.Model):
     def __str__(self):
         return self.title
 
+
+class Comments(models.Model):
+    id = models.AutoField(primary_key=True)
+    user = models.ForeignKey(Profile, on_delete=models.CASCADE, verbose_name='Usuario')
+    content = models.TextField('Comentario')
+    apartment = models.ForeignKey(Apartment,on_delete=models.CASCADE, default=None)
+    comment_date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Comentario'
+        verbose_name_plural = 'Comentarios'
+
+    def __str__(self):
+        return str(self.user)

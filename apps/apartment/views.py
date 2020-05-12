@@ -3,10 +3,28 @@ from django.urls import reverse_lazy
 from apps.users.models import Profile
 from django.contrib import messages
 from apps.users.forms import UpdateProfileForm
+from .models import Apartment, Comments
 
 
 def dashboard(request):
-    return render(request, 'POST-ARRENDATARIOS-FORANEO.html')
+    apartments = Apartment.objects.all()
+    context = {'apartments': apartments}
+    return render(request, 'POST-ARRENDATARIOS-FORANEO.html', context)
+
+
+def apartment_detail(request, id):
+    apartment = get_object_or_404(Apartment, id=id)
+    comments = Comments.objects.filter(apartment__id=id)
+    context = {'apartment': apartment, 'comments': comments}
+    return render(request, 'apartment_detail.html', context)
+
+
+def add_coment(request, id):
+    if request.method == 'POST':
+        user = request.user.profile
+        content = request.POST['contenido']
+        Comments.objects.create(user=user, apartment_id=id, content=content)
+    return redirect('details', id=id)
 
 
 def profile(request):
@@ -24,4 +42,3 @@ def profile(request):
     context = {'profile_form': profile_form, 'profile': current_profile}
 
     return render(request, 'userprofile.html', context)
-

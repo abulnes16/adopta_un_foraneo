@@ -97,7 +97,7 @@ body {
   color: #000000;
   font-weight: bold;
 }
-=======
+
 /* GLOBAL STYLES
 -------------------------------------------------- */
 /* Padding below the footer and lighter body text */
@@ -190,3 +190,14 @@ body {
   }
 }
 
+
+.no-link {
+  text-decoration: none;
+  color: #5a6268;
+  padding: 5px;
+}
+
+.no-link:hover{
+  text-decoration: none;
+  background-color: #eaeaea;
+}
