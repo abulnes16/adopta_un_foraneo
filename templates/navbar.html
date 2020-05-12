@@ -1,16 +1,23 @@
 {% load static %}
 <nav class="navbar navbar-expand-lg navbar-light" id="navnav">
-                <div class="row" id="wrapper">
-                    <h1 class="text-white"><img src="{% static 'img/lugar.svg' %}" style="height: 2.5rem">Adopta un Foraneo</h1>
-                    <button id="boton-expandible" class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="navbar-collapse text-left collapse" id="navbarSupportedContent">
-                        <form class="form-inline my-2 my-lg-0" id="login-form">
-                            <a class="link-user text-white" tabindex="1" href="{% url 'dashboard' %}"><i class="fas fa-newspaper"></i><span>Inicio</span></a>
-                            <a class="link-user text-white" tabindex="1" href="{% url 'profile' %}"><i class="fas fa-user-circle"></i><span>Mi perfil</span></a>
-                            <a class="link-user text-white" tabindex="1" href="{% url 'logout' %}" style="border: 1px solid white;">Cerrar sesión<i class="fas fa-sign-out-alt text-white"></i></a>
-                        </form>
-                    </div>
-                </div>
+    <div class="row" id="wrapper">
+        <a class="link-user" href="{% url 'dashboard' %}">
+            <h1 class="text-white"><img src="{% static 'img/lugar.svg' %}" style="height: 2.5rem">Adopta un Foraneo</h1>
+        </a>
+        <button id="boton-expandible" class="navbar-toggler collapsed" type="button" data-toggle="collapse"
+                data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="navbar-collapse text-left collapse" id="navbarSupportedContent">
+            <form class="form-inline my-2 my-lg-0" id="login-form">
+                <a class="link-user text-white" tabindex="1" href="{% url 'dashboard' %}"><i
+                        class="fas fa-newspaper"></i><span>Inicio</span></a>
+                <a class="link-user text-white" tabindex="1" href="{% url 'profile' %}"><i
+                        class="fas fa-user-circle"></i><span>Mi perfil</span></a>
+                <a class="link-user text-white" tabindex="1" href="{% url 'logout' %}" style="border: 1px solid white;">Cerrar
+                    sesión<i class="fas fa-sign-out-alt text-white"></i></a>
+            </form>
+        </div>
+    </div>
 </nav>
